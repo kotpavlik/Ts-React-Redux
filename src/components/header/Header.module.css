@@ -1,0 +1,17 @@
+.header {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: aqua;
+    color: white;
+    text-shadow: 2px 2px black;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+img {
+    width: 40px;
+    position: relative;
+    bottom: -10px;
+}
