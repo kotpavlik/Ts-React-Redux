@@ -8,10 +8,17 @@
     margin: 10px;
     padding: 10px;
     border: 1px solid black;
+    border-radius: 10px 10px 0 0;
 }
 
-img {
+.logo {
     width: 40px;
     position: relative;
-    bottom: -10px;
+    bottom: -3px;
+    transition-duration: 0.5s;
+}
+
+.logo:hover {
+    transition-duration: 0.5s;
+    transform: rotateY(360deg);
 }
