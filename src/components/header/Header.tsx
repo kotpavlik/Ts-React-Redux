@@ -2,6 +2,7 @@ import React from "react";
 import s from "./Header.module.css";
 import logo from "./../assets/logo192.png";
 import Burger from "../nav/navbar/burger/Burger";
+import { NavLink } from "react-router-dom";
 
 type BurgerType = {
   menuActive: boolean;
@@ -15,7 +16,9 @@ const Header = (props: BurgerType) => {
 
       <h1>
         Welc
-        <img src={logo} className={s.logo} alt="logo is late" />
+        <NavLink to="/">
+          <img src={logo} className={s.logo} alt="logo is late" />
+        </NavLink>
         me
       </h1>
     </div>

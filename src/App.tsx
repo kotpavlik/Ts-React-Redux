@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 
 import s from "./App.module.css";
 import Footer from "./components/footer/Footer";
@@ -16,7 +17,9 @@ const App = () => {
           <Header setMenuActive={setMenuActive} menuActive={menuActive} />
         </header>
         <nav className={s.nawWraper}>
-          <Content />
+          <Routes>
+            <Route path="/" element={<Content />} />
+          </Routes>
           <NavMenu active={menuActive} setMenuActive={setMenuActive} />
         </nav>
         <footer className={s.footerWraper}>
