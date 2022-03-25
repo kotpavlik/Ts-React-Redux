@@ -3,7 +3,12 @@ import s from "./Header.module.css";
 import logo from "./../assets/logo192.png";
 import Burger from "../nav/navbar/burger/Burger";
 
-const Header = (props: any) => {
+type BurgerType = {
+  menuActive: boolean;
+  setMenuActive: Function;
+};
+
+const Header = (props: BurgerType) => {
   return (
     <div className={s.header}>
       <Burger setActive={props.setMenuActive} active={props.menuActive} />

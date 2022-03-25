@@ -1,7 +1,12 @@
 import React from "react";
 import s from "./NavMenu.module.css";
 
-const NavMenu = (props: any) => {
+type NavMenuType = {
+  active: boolean;
+  setMenuActive: Function;
+};
+
+const NavMenu = (props: NavMenuType) => {
   return (
     <div
       className={props.active ? `${s.menu} ${s.active}` : s.menu}
