@@ -11,9 +11,6 @@
 
 .nawWraper {
     flex: 1 0 auto;
-    display: grid;
-    grid-template-columns: 20% 80%;
-    grid-gap: 5px;
     margin: 15px;
 }
 

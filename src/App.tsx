@@ -1,21 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 import s from "./App.module.css";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Content from "./components/nav/content/Content";
-import NavBar from "./components/nav/navbar/NavBar";
+import NavMenu from "./components/nav/navbar/menu/NavMenu";
 
 const App = () => {
+  const [menuActive, setMenuActive] = useState(false);
+
   return (
     <div className={s.globalWraper}>
       <div className={s.App}>
         <header className={s.headerWraper}>
-          <Header />
+          <Header setMenuActive={setMenuActive} menuActive={menuActive} />
         </header>
         <nav className={s.nawWraper}>
-          <NavBar />
           <Content />
+          <NavMenu active={menuActive} setMenuActive={setMenuActive} />
         </nav>
         <footer className={s.footerWraper}>
           <Footer />
