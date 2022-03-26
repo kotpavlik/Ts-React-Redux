@@ -1,0 +1,52 @@
+.profileInfo {
+    padding: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.profileInfo>.profilePhoto {
+    text-align: center;
+}
+
+.profileInfo>.profileFullName {
+    text-align: right;
+}
+
+.profileFullName {
+    margin: 10px 0;
+}
+
+.profilePhoto>img {
+    width: 200px;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 50%;
+}
+
+.profilePhoto {
+    margin: 10px 0;
+}
+
+.profileStatus {
+    margin: 10px 0;
+}
+
+.profileLookingForAJob {
+    margin: 10px 0;
+}
+
+.profileLookingForAJobDescription {
+    margin: 10px 0;
+}
+
+.profileContacts>a:visited {
+    color: black;
+}
+
+.profileContacts>a {
+    padding: 2px;
+}
+
+.profileContacts {
+    display: flex;
+    flex-direction: column;
+}

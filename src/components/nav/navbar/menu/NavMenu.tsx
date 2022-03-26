@@ -60,9 +60,9 @@ const NavMenu = (props: NavMenuType) => {
             <span className="material-icons">settings</span>
             <NavLink
               className={({ isActive }) => (isActive ? s.activeLink : " ")}
-              to="/setings"
+              to="/settings"
             >
-              setings
+              settings
             </NavLink>
           </div>
         </div>

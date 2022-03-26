@@ -1,0 +1,40 @@
+.all_wrapper_profile_textarea {
+    margin: 20px;
+}
+
+.all_wrapper_profile_textarea>h3 {
+    margin: 10px 0;
+}
+
+.profile_textarea {
+    display: flex;
+    flex-direction: row;
+}
+
+.textarea {
+    border: 1px solid #111;
+    margin: 0 10px;
+    border-radius: 8px;
+    padding: 5px;
+    width: 100%;
+    transition-duration: 0.5s;
+}
+
+.textarea:focus {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    transition-duration: 0.5s;
+}
+
+.black_row {
+    width: 30px;
+    height: 25px;
+    margin-left: 10px;
+}
+
+.black_row span {
+    position: absolute;
+    top: 10px;
+    width: 500px;
+    background-color: black;
+    height: 1px;
+}

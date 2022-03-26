@@ -1,0 +1,31 @@
+.profileWrap {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+.profileWrapInfo {
+    border: 1px solid #666;
+    border-radius: 20px;
+    margin: 0 30px;
+    box-shadow: rgb(38, 57, 77) 0px -10px 30px -10px;
+    height: 100vh;
+    overflow: auto;
+}
+
+.profileWrapInfo::-webkit-scrollbar {
+    width: 0;
+}
+
+.profileWrapPosts {
+    border: 1px solid #666;
+    margin: 0 30px;
+    border-radius: 20px;
+    box-shadow: rgb(38, 57, 77) 0px -10px 30px -10px;
+    height: 100vh;
+    overflow: auto;
+}
+
+.profileWrapPosts::-webkit-scrollbar {
+    width: 0;
+}
