@@ -1,12 +1,9 @@
-.all_wrapper_profile_textarea {
-    margin: 20px;
+.overflow_for_MessagesCompanion {
+    height: 70vh;
+    overflow: auto;
 }
 
-.all_wrapper_profile_textarea>h3 {
-    margin: 10px 0;
-}
-
-.profile_textarea {
+.mess_com_textarea {
     display: flex;
     flex-direction: row;
 }
@@ -16,7 +13,7 @@
     margin: 0 10px;
     border-radius: 8px;
     padding: 5px;
-    width: 100%;
+    width: 80%;
     transition-duration: 0.5s;
 }
 

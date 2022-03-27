@@ -1,0 +1,10 @@
+.all_messages_wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.messagesWrap {
+    height: 80vh;
+    width: 80%;
+    border: 1px solid #666;
+}

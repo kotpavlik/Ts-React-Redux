@@ -87,3 +87,11 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.material-icons {
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}

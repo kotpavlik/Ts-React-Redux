@@ -1,0 +1,32 @@
+.messages_wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+}
+
+.user_dialog_logo {
+    margin: 5px 10px;
+}
+
+.user_dialog_logo>img {
+    width: 60px;
+    border: 0px solid rgb(0, 0, 0);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.user_dialog_name_ {
+    margin: 5px 0px 15px 0px;
+}
+
+.user_dialog_name_>h3 {
+    margin: 0 20px;
+    cursor: pointer;
+    width: 30%;
+}
+
+.user_dialog_massage {
+    margin: 20px;
+    padding: 0 0 10px 0;
+    cursor: pointer;
+}

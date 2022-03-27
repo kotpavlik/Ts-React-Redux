@@ -1,0 +1,16 @@
+.dialogs_users_wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.users_in_dialog {
+    border-right: 1px solid #666;
+    width: 30%;
+    height: 100%;
+    overflow: auto;
+}
+
+.dialogs {
+    width: 70%;
+}
