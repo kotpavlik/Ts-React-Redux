@@ -4,7 +4,7 @@ import logo from "./../assets/logo192.png";
 import Burger from "../nav/navbar/burger/Burger";
 import { NavLink } from "react-router-dom";
 
-type BurgerType = {
+export type BurgerType = {
   menuActive: boolean;
   setMenuActive: Function;
 };
@@ -12,7 +12,7 @@ type BurgerType = {
 const Header = (props: BurgerType) => {
   return (
     <div className={s.header}>
-      <Burger setActive={props.setMenuActive} active={props.menuActive} />
+      <Burger setMenuActive={props.setMenuActive} menuActive={props.menuActive} />
 
       <h1>
         Welc

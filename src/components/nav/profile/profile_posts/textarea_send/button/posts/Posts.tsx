@@ -4,6 +4,7 @@ import logo_user from "../../../../../../assets/profilePhoto.jpeg";
 
 type PostType = {
   post: string;
+
 };
 
 const Posts = (props: PostType) => {

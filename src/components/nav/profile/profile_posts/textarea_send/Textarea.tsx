@@ -1,29 +1,25 @@
-import React from "react";
-import Button from "./button/Button";
-import Posts from "./button/posts/Posts";
-import s from "./Textarea.module.css";
+import React from 'react';
+import Button from './button/Button';
+import Posts from './button/posts/Posts';
+import s from './Textarea.module.css';
+import {PropsPostTypes} from '../ProfilePosts';
 
-const ProfileTextarea = () => {
-  return (
-    <div className={s.all_wrapper_profile_textarea}>
-      <h3>Posts</h3>
-      <div className={s.profile_textarea}>
-        <textarea
-          className={s.textarea}
-          name="posts_area"
-          placeholder="wright please"
-          id="profile_texta"
-        ></textarea>
-        <Button />
-      </div>
-      <div className={s.posts}>
-        <Posts post="hello" />
-        <Posts post="have a good hacking" />
-        <Posts post="oh my god " />
-        <Posts post="it is hell" />
-      </div>
-    </div>
-  );
+
+const ProfileTextarea = (props: PropsPostTypes) => {
+    let MyPosts = props.posts.map(p => <Posts key={p.id} post={p.message}/>)
+
+    return (
+        <div className={s.all_wrapper_profile_textarea}>
+            <h3>Posts</h3>
+            <div className={s.profile_textarea}>
+                <textarea className={s.textarea} name="posts_area" placeholder="wright please" id="profile_textarea"/>
+                <Button/>
+            </div>
+            <div className={s.posts}>
+                {MyPosts}
+            </div>
+        </div>
+    );
 };
 
 export default ProfileTextarea;

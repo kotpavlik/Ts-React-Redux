@@ -1,14 +1,17 @@
 import React from "react";
 import s from "./Burger.module.css";
+import {BurgerType} from '../../../header/Header';
 
-type BurgerType = {
-  setActive: Function;
-  active: boolean;
-};
+
 
 const Burger = (props: BurgerType) => {
+
+  const onClickHandler = () => {
+    props.setMenuActive(!props.menuActive);
+  };
+
   return (
-    <div className={s.burgerBtn} onClick={() => props.setActive(!props.active)}>
+    <div className={s.burgerBtn} onClick={onClickHandler}>
       <span></span>
     </div>
   );
