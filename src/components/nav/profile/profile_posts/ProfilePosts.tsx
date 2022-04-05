@@ -10,7 +10,7 @@ export  type PropsPostTypes = {
 const ProfilePosts = (props:PropsPostTypes) => {
   return (
     <div className={s.profile_posts}>
-      <ProfileTextarea posts={props.posts}/>
+      <ProfileTextarea posts={props.posts} />
     </div>
   );
 };
