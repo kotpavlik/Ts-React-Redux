@@ -10,7 +10,7 @@
     margin: 0 30px;
     box-shadow: rgb(38, 57, 77) 0px -10px 30px -10px;
     height: 100vh;
-    overflow: auto;
+
 }
 
 .profileWrapInfo::-webkit-scrollbar {

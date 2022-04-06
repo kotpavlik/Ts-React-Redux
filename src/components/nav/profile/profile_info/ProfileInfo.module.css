@@ -3,47 +3,100 @@
     font-size: 20px;
     cursor: pointer;
 }
+.profileInfo>h2,h3 {
+    color: aqua;
+    text-shadow: 1px 1px 1px black;
+}
 
 .profileInfo>.profilePhoto {
     text-align: center;
 }
+.profileStatus {
+    margin-bottom: 10px;
+}
+.profileLookingForAJob {
+    margin-bottom: 10px;
+}
+.profileLookingForAJobDescription {
+    margin-bottom: 10px;
+}
 
+.profileContacts {
+    margin-bottom: 10px;
+}
 .profileInfo>.profileFullName {
     text-align: right;
 }
+.item{
+    margin-top: 8px;
+}
+
 
 .profileFullName {
     margin: 10px 0;
+    color: aqua;
+    text-shadow: 1px 1px 1px black;
 }
+
 
 .profilePhoto>img {
     width: 200px;
     border: 3px solid rgb(0, 0, 0);
     border-radius: 50%;
 }
-
-.profilePhoto {
-    margin: 10px 0;
+.contact {
+    margin-top: 4px;
+    margin-bottom: 2px;
+}
+.no_contact {
+    margin-top: 4px;
+    margin-bottom: 2px;
 }
 
-.profileStatus {
-    margin: 10px 0;
-}
-
-.profileLookingForAJob {
-    margin: 10px 0;
-}
-
-.profileLookingForAJobDescription {
-    margin: 10px 0;
-}
-
-.profileContacts>a:visited {
+.contact>a:visited {
     color: black;
 }
 
-.profileContacts>a {
-    padding: 2px;
+.contact>a {
+    padding-left: 10px;
+    color: black !important;
+    cursor: pointer;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    transition-duration: 1s;
+}
+.contact>a:hover {
+    -webkit-transform: translate(30px, 0px);
+    -moz-transform: translate(30px, 0px);
+    -ms-transform: translate(30px, 0px);
+    -o-transform: translate(30px, 0px);
+    transform: translate(30px, 0px);
+    font-size: 21px;
+    text-shadow: 2px 2px 10px aqua;
+    transition-duration: 1s;
+}
+.no_contact>a:visited {
+    color: black;
+}
+
+.no_contact>a {
+    padding-left: 10px;
+    color: black !important;
+    cursor: pointer;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    transition-duration: 1s;
+
+}
+.no_contact>a:hover {
+    -webkit-transform: translate(30px, 0px);
+    -moz-transform: translate(30px, 0px);
+    -ms-transform: translate(30px, 0px);
+    -o-transform: translate(30px, 0px);
+    transform: translate(30px, 0px);
+    font-size: 21px;
+    text-shadow: 2px 2px 10px #ff0099;
+    transition-duration: 1s;
 }
 
 .profileContacts {

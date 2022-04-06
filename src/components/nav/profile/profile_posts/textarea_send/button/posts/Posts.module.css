@@ -1,6 +1,7 @@
 .logo_user_post>img {
     width: 80px;
     transition-duration: 0.5s;
+    cursor: pointer;
 }
 .logo_user_post>img:hover {
     width: 90px;
