@@ -5,8 +5,13 @@ import s from './Textarea.module.css';
 import {PropsPostTypes} from '../ProfilePosts';
 
 
+
 const ProfileTextarea = (props: PropsPostTypes) => {
-    let MyPosts = props.posts.map(p => <Posts key={p.id} post={p.message} profilePhoto={p.profilePhoto}/>)
+
+    let MyPosts = props.posts.map((p )=> {
+        debugger
+
+        return (<Posts key={p.id} post={p.message} profilePhoto={p.profilePhoto}/>)})
 
     return (
         <div className={s.all_wrapper_profile_textarea}>

@@ -1,8 +1,9 @@
 import React from "react";
 import DialogsUsersMessage from "./dialogs_users_message/DialogsUsersMessage";
 import s from "./UsersInDialogs.module.css";
+import {propsMessagesTypes} from '../../Messages';
 
-const UsersInDialogs = () => {
+const UsersInDialogs: React.FC<propsMessagesTypes>= (props) => {
   return (
     <div className={s.users_dialogs}>
       <div className={s.searching}>
@@ -15,15 +16,9 @@ const UsersInDialogs = () => {
         </div>
       </div>
       <div className={s.wrapper_DialogsUsersMessage}>
-        <DialogsUsersMessage />
-        <DialogsUsersMessage />
-        <DialogsUsersMessage />
-        <DialogsUsersMessage />
-        <DialogsUsersMessage />
-        <DialogsUsersMessage />
-        <DialogsUsersMessage />
-        <DialogsUsersMessage />
-        <DialogsUsersMessage />
+        {props.messages.map((m)=>{
+          return <DialogsUsersMessage message={m.message} key={m.id}/>
+        })}
       </div>
     </div>
   );

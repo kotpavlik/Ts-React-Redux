@@ -1,8 +1,13 @@
-import React from "react";
+import React, {FC} from 'react';
 import s from "./DialogsUsersMessage.module.css";
 import dialog_logo from "../../../../../assets/profilePhoto.jpeg";
 
-const DialogsUsersMessage = () => {
+type DialogsUsersMessagePropsType = {
+    message: string
+    key:string
+}
+
+const DialogsUsersMessage:FC<DialogsUsersMessagePropsType> = (props) => {
   return (
     <div className={s.dialog_friend}>
       <div className={s.user_dialog_logo}>
@@ -13,7 +18,7 @@ const DialogsUsersMessage = () => {
           <h3>Kot Pavlik</h3>
         </div>
         <div className={s.user_dialog_massage}>
-          hello how are you my dear friend and Lorem ipsum dolor sit amet
+            {props.message}
           consectetur adipisicing elit. Placeat, quaerat!
         </div>
       </div>

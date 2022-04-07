@@ -2,10 +2,17 @@ import React from 'react';
 import s from './Profile.module.css';
 import ProfileInfo from './profile_info/ProfileInfo';
 import ProfilePosts from './profile_posts/ProfilePosts';
+import profilePhoto from '../../assets/profilePhoto.jpeg';
+import profilePhoto1 from '../../assets/profilePhoto1.jpg';
+import profilePhoto2 from '../../assets/profilePhoto2.jpeg';
+import profilePhoto3 from '../../assets/profilePhoto3.jpg';
 
 
-import {v1} from 'uuid';
 
+type profilePropsType = {
+    posts:Array<postsType>
+    profileInfo:profileInfoTypes
+}
 export type postsType = {
     id: string
     message: string
@@ -37,65 +44,16 @@ export type photosType = {
 }
 
 
-const Profile = () => {
-    const posts = [
-        {
-            id: v1(),
-            message: 'Hi, how are you?',
-            likesCount: 12,
-            profilePhoto: '/static/media/profilePhoto.5ca85af7df747cdacde9.jpeg'
-        },
-        {
-            id: v1(),
-            message: 'It\'s my first post',
-            likesCount: 11,
-            profilePhoto: '/static/media/profilePhoto1.d5cde56cdb4a33410ead.jpg'
-        },
-        {
-            id: v1(),
-            message: 'Bla-bla-bla',
-            likesCount: 10,
-            profilePhoto: '/static/media/profilePhoto2.bf50647337338a335ccd.jpeg'
-        },
-        {
-            id: v1(),
-            message: 'Hi, how are you?',
-            likesCount: 12,
-            profilePhoto: '/static/media/profilePhoto3.89ba50aeb7cf370e9c58.jpg'
-        },
-    ]
-
-    const profileInfo: profileInfoTypes = {
-        userId: v1(),
-        aboutMe: 'Hi, I am a student',
-        lookingForAJob: false,
-        lookingForAJobDescription: 'i\'m searching for a job',
-        fullName: 'Kot Pavlik',
-        contacts: {
-            github: 'https://github.com/kotpavlik?tab=repositories',
-            vk: 'https://vk.com/etotcosmos',
-            facebook: '',
-            instagram: 'https://www.instagram.com/_igor_anufriev/?hl=ru',
-            twitter: 'https://twitter.com/home',
-            website: 'https://pinkpunk.by/ru/',
-            youtube: '',
-            mainLink: 'https://www.linkedin.com/feed'
-        },
-        photos: {
-            small : '/static/media/profilePhoto.5ca85af7df747cdacde9.jpeg',
-            large: '/static/media/profilePhoto.5ca85af7df747cdacde9.jpeg'
-        }
-    }
-
+const Profile:React.FC<profilePropsType> = (props) => {
 
     return (
         <div className={s.profileWrap}>
             <div className={s.profileWrapPosts}>
-                <ProfilePosts posts={posts}/>
+                <ProfilePosts posts={props.posts}/>
             </div>
             <div className={s.profileWrapInfo}>
 
-                <ProfileInfo profileInfo={profileInfo}/>
+                <ProfileInfo profileInfo={props.profileInfo}/>
             </div>
         </div>
     );

@@ -1,8 +1,12 @@
 import React from "react";
 import s from "./YouMessages.module.css";
 import logo_companion from "../../../../../assets/profilePhoto.jpeg";
+import {propsMessagesTypes} from '../../../Messages';
 
-const YouMessages = () => {
+type YourMessagePropsType = {
+    message: string
+}
+const YouMessages = (props:YourMessagePropsType) => {
   return (
     <div className={s.messages_wrapper}>
       <div className={s.user_dialog_logo}>
@@ -13,10 +17,7 @@ const YouMessages = () => {
           <h3>Kot Pavlik</h3>
         </div>
         <div className={s.user_dialog_massage}>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit
-          voluptate dignissimos esse possimus quas, molestias error minus
-          praesentium, atque reiciendis ut. Error libero a aliquam, ducimus nam
-          debitis suscipit voluptatibus.
+            {props.message}
         </div>
       </div>
     </div>

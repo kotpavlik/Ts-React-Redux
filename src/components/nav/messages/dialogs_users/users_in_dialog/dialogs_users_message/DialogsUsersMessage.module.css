@@ -14,19 +14,21 @@
     cursor: pointer;
 }
 
+
 .user_dialog_name_ {
     margin: 5px 0px 15px 0px;
+    width: 50%;
 }
 
 .user_dialog_name_>h3 {
     cursor: pointer;
-    width: 30%;
+    width: auto;
 }
 
 .user_dialog_massage {
     white-space: nowrap;
     overflow: hidden;
-    width: 30%;
+    width: 50%;
     text-overflow: ellipsis;
     padding: 0 0 10px 0;
     border-bottom: 1px solid #666;

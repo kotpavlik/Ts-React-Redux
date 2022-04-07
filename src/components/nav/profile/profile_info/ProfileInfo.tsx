@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
-import {contactsType, profileInfoTypes} from '../Profile';
+import { profileInfoTypes} from '../Profile';
 
 type propsProfileInfo = {
     profileInfo: profileInfoTypes
