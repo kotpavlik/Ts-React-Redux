@@ -12,8 +12,12 @@ import News from "./components/nav/news/News";
 import Profile, {postsType, profileInfoTypes} from './components/nav/profile/Profile';
 import Settings from "./components/nav/setings/Settings";
 import {v1} from 'uuid';
+import profilePhoto1 from './components/assets/profilePhoto1.jpg';
+import profilePhoto2 from './components/assets/profilePhoto2.jpeg';
+import profilePhoto3 from './components/assets/profilePhoto3.jpg';
 
 const App = () => {
+  let a = profilePhoto1; let b = profilePhoto2; let c= profilePhoto3;
   const [menuActive, setMenuActive] = useState(false);
   const posts: Array<postsType> = [
     {

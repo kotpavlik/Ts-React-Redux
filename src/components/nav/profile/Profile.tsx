@@ -2,10 +2,7 @@ import React from 'react';
 import s from './Profile.module.css';
 import ProfileInfo from './profile_info/ProfileInfo';
 import ProfilePosts from './profile_posts/ProfilePosts';
-import profilePhoto from '../../assets/profilePhoto.jpeg';
-import profilePhoto1 from '../../assets/profilePhoto1.jpg';
-import profilePhoto2 from '../../assets/profilePhoto2.jpeg';
-import profilePhoto3 from '../../assets/profilePhoto3.jpg';
+
 
 
 
