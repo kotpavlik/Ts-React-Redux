@@ -29,7 +29,6 @@ const App = (props: AppPropsType) => {
     let c = profilePhoto3;
     const [menuActive, setMenuActive] = useState(false);
 
-
     return (
         <div className={s.globalWraper}>
             <div className={s.App}>
