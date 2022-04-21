@@ -14,7 +14,7 @@ import Settings from './components/nav/setings/Settings';
 import profilePhoto1 from './components/assets/profilePhoto1.jpg';
 import profilePhoto2 from './components/assets/profilePhoto2.jpeg';
 import profilePhoto3 from './components/assets/profilePhoto3.jpg';
-import {stateType} from './react/state/state';
+import {stateType} from './redux/state/state';
 
 type AppPropsType = {
     state: stateType
