@@ -22,8 +22,6 @@ type AppPropsType = {
 
 const App = (props: AppPropsType) => {
 
-
-
     let a = profilePhoto1;
     let b = profilePhoto2;
     let c = profilePhoto3;
