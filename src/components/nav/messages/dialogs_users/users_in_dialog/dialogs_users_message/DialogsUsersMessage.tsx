@@ -19,7 +19,7 @@ const DialogsUsersMessage:FC<DialogsUsersMessagePropsType> = (props) => {
         </div>
         <div className={s.user_dialog_massage}>
             {props.message}
-          consectetur adipisicing elit. Placeat, quaerat!
+
         </div>
       </div>
     </div>

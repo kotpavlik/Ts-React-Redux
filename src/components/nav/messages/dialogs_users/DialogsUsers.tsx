@@ -11,7 +11,9 @@ const DialogsUsers: React.FC<propsMessagesTypes> = (props) => {
                 <UsersInDialogs profileInfo={props.profileInfo} messages={props.messages}/>
             </div>
             <div className={s.dialogs}>
-                <MessagesCompanion profileInfo={props.profileInfo} messages={props.messages}/>
+                <MessagesCompanion profileInfo={props.profileInfo}
+                                   messages={props.messages}
+                                   newMessageText={props.newMessageText}/>
             </div>
         </div>
     );

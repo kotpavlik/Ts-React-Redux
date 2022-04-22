@@ -43,7 +43,8 @@ const App = (props: AppPropsType) => {
                         <Route path="/messages" element={
                             <Messages
                                 profileInfo={props.state.forUserProfile.profileInfo}
-                                messages={props.state.forMessagesPages.messages}/>}/>
+                                messages={props.state.forMessagesPages.messages}
+                                newMessageText={props.state.forMessagesPages.newMessageText}/>}/>
                         <Route path="/music" element={<Music/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/settings" element={<Settings/>}/>

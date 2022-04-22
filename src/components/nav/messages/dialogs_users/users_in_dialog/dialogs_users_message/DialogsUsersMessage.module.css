@@ -28,7 +28,7 @@
 .user_dialog_massage {
     white-space: nowrap;
     overflow: hidden;
-    width: 50%;
+    width: 250px;
     text-overflow: ellipsis;
     padding: 0 0 10px 0;
     border-bottom: 1px solid #666;

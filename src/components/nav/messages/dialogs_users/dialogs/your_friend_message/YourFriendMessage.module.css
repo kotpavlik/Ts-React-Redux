@@ -48,7 +48,8 @@
     margin: 5px;
     padding: 10px;
     cursor: pointer;
-    width: auto;
+    max-width:400px;
+    word-break: break-all;
     background-color: rgba(108, 215, 255, 0.45);
     border-radius: 20px;
 }

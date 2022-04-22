@@ -1,6 +1,7 @@
 import {postsType, profileInfoTypes} from '../../components/nav/profile/Profile';
 import {v1} from 'uuid';
 import {messagesTypes} from '../../components/nav/messages/Messages';
+import {RenderTree} from '../../render';
 
 
 export type stateType = {
@@ -16,6 +17,7 @@ type UserPageType = {
 }
 type MessagesPageType = {
     messages: Array<messagesTypes>
+    newMessageText: string
 }
 
 
@@ -78,8 +80,24 @@ let state: stateType = {
             {id: v1(), message: 'Yo Yo Yo. What\'s up?'},
             {id: v1(), message: 'My niga Igor Anufriev'},
             {id: v1(), message: 'Have a good hacking'},
-        ]
+        ],
+        newMessageText:''
     }
+}
+export const sendMessageButton = () => {
+    debugger
+    const newMessage: messagesTypes = {
+        id: v1(),
+        message: state.forMessagesPages.newMessageText
+    }
+    state.forMessagesPages.messages.push(newMessage)
+    state.forMessagesPages.newMessageText = ''
+    RenderTree(state)
+}
+export const sendChangeMessageButton =( NewText:string) => {
+    debugger
+    state.forMessagesPages.newMessageText = NewText;
+    RenderTree(state)
 }
 
 export default state;

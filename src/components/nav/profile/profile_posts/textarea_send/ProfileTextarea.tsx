@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './button/Button';
 import Posts from './button/posts/Posts';
-import s from './Textarea.module.css';
+import s from './ProfileTextarea.module.css';
 import {PropsPostTypes} from '../ProfilePosts';
 
 

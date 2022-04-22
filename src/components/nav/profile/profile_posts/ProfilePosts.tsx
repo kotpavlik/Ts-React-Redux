@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./ProfilePosts.module.css";
-import ProfileTextarea from "./textarea_send/Textarea";
+import ProfileTextarea from "./textarea_send/ProfileTextarea";
 import {postsType} from '../Profile';
 
 export  type PropsPostTypes = {
