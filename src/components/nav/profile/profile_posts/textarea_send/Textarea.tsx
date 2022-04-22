@@ -9,16 +9,15 @@ import {PropsPostTypes} from '../ProfilePosts';
 const ProfileTextarea = (props: PropsPostTypes) => {
 
     let MyPosts = props.posts.map((p )=> {
-        debugger
-
         return (<Posts key={p.id} post={p.message} profilePhoto={p.profilePhoto}/>)})
+
 
     return (
         <div className={s.all_wrapper_profile_textarea}>
             <h3>Posts</h3>
             <div className={s.profile_textarea}>
                 <textarea className={s.textarea} name="posts_area" placeholder="wright please" id="profile_textarea"/>
-                <Button/>
+                <Button name={'send'} onClickHandler={()=>{alert('hooow')}}/>
             </div>
             <div className={s.posts}>
                 {MyPosts}

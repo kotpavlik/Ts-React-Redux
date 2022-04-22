@@ -25,7 +25,7 @@ const MessagesCompanion: React.FC<propsMessagesTypes> = (props) => {
             placeholder="wright please"
             id="profile_texta"
         />
-                <Button/>
+                <Button name={'send'} onClickHandler={()=>{alert('hey')}}/>
             </div>
         </div>
     );
