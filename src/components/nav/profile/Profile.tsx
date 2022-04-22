@@ -9,6 +9,7 @@ import ProfilePosts from './profile_posts/ProfilePosts';
 type profilePropsType = {
     posts:Array<postsType>
     profileInfo:profileInfoTypes
+    NewPostText:string
 }
 export type postsType = {
     id: string
@@ -24,6 +25,7 @@ export type profileInfoTypes = {
     fullName: string
     contacts: contactsType
     photos: photosType
+
 }
 export type contactsType = {
     github: string | undefined
@@ -46,7 +48,7 @@ const Profile:React.FC<profilePropsType> = (props) => {
     return (
         <div className={s.profileWrap}>
             <div className={s.profileWrapPosts}>
-                <ProfilePosts posts={props.posts}/>
+                <ProfilePosts posts={props.posts} NewPostText={props.NewPostText}/>
             </div>
             <div className={s.profileWrapInfo}>
 

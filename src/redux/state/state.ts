@@ -11,6 +11,7 @@ export type stateType = {
 }
 type ProfilePageType = {
     posts: Array<postsType>
+    NewPostText: string
 }
 type UserPageType = {
     profileInfo: profileInfoTypes
@@ -48,7 +49,8 @@ let state: stateType = {
                 likesCount: 12,
                 profilePhoto: '/static/media/profilePhoto3.89ba50aeb7cf370e9c58.jpg'
             },
-        ]
+        ],
+        NewPostText:''
     },
     forUserProfile: {
         profileInfo: {
@@ -84,8 +86,24 @@ let state: stateType = {
         newMessageText:''
     }
 }
+
+export const addPost = () => {
+const NewPost:postsType = {
+    id: v1(),
+    message: state.forProfilePage.NewPostText,
+    likesCount: 0,
+    profilePhoto: '/static/media/profilePhoto.5ca85af7df747cdacde9.jpeg'
+}
+    state.forProfilePage.posts.unshift(NewPost)
+    state.forProfilePage.NewPostText = ''
+    RenderTree(state)
+}
+export const addChangePost = (text:string) => {
+state.forProfilePage.NewPostText = text;
+    RenderTree(state)
+}
+
 export const sendMessageButton = () => {
-    debugger
     const newMessage: messagesTypes = {
         id: v1(),
         message: state.forMessagesPages.newMessageText
@@ -95,7 +113,6 @@ export const sendMessageButton = () => {
     RenderTree(state)
 }
 export const sendChangeMessageButton =( NewText:string) => {
-    debugger
     state.forMessagesPages.newMessageText = NewText;
     RenderTree(state)
 }

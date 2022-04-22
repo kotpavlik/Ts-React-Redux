@@ -1,4 +1,4 @@
-.globalWraper {
+.globalWrapper {
     height: 100%;
 }
 
@@ -9,11 +9,11 @@
     min-height: 100vh;
 }
 
-.nawWraper {
+.nawWrapper {
     flex: 1 0 auto;
     margin: 90px 20px 10px 20px;
 }
 
-.footerWraper {
+.footerWrapper {
     flex: 0 0 auto;
 }

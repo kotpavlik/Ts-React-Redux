@@ -5,13 +5,14 @@ import {postsType} from '../Profile';
 
 export  type PropsPostTypes = {
     posts: Array<postsType>
+    NewPostText: string
 }
 
 const ProfilePosts = (props:PropsPostTypes) => {
 
   return (
     <div className={s.profile_posts}>
-      <ProfileTextarea posts={props.posts} />
+      <ProfileTextarea posts={props.posts}  NewPostText={props.NewPostText}/>
     </div>
   );
 };

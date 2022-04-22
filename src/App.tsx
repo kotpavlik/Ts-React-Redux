@@ -28,18 +28,19 @@ const App = (props: AppPropsType) => {
     const [menuActive, setMenuActive] = useState(false);
 
     return (
-        <div className={s.globalWraper}>
+        <div className={s.globalWrapper}>
             <div className={s.App}>
-                <header className={s.headerWraper}>
+                <header className={s.headerWrapper}>
                     <Header setMenuActive={setMenuActive} menuActive={menuActive}/>
                 </header>
-                <nav className={s.nawWraper}>
+                <nav className={s.nawWrapper}>
                     <Routes>
                         <Route path="/" element={<Content/>}/>
                         <Route path="/profile" element={
                             <Profile
                                 posts={props.state.forProfilePage.posts}
-                                profileInfo={props.state.forUserProfile.profileInfo}/>}/>
+                                profileInfo={props.state.forUserProfile.profileInfo}
+                                NewPostText={props.state.forProfilePage.NewPostText}/>}/>
                         <Route path="/messages" element={
                             <Messages
                                 profileInfo={props.state.forUserProfile.profileInfo}
@@ -51,7 +52,7 @@ const App = (props: AppPropsType) => {
                     </Routes>
                     <NavMenu active={menuActive} setMenuActive={setMenuActive}/>
                 </nav>
-                <footer className={s.footerWraper}>
+                <footer className={s.footerWrapper}>
                     <Footer/>
                 </footer>
             </div>
