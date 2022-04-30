@@ -4,7 +4,7 @@ import s from './MessagesCompanion.module.css';
 import YourFriendMessage from './your_friend_message/YourFriendMessage';
 import YouMessages from './you_messages/YouMessages';
 import {messagesTypes, propsMessagesTypes} from '../../Messages';
-import {sendChangeMessageButton, sendMessageButton} from '../../../../../redux/state/state';
+
 
 
 const MessagesCompanion: React.FC<propsMessagesTypes> = (props) => {
@@ -13,16 +13,16 @@ const MessagesCompanion: React.FC<propsMessagesTypes> = (props) => {
 
     const onChangeTextarea = (e:ChangeEvent<HTMLTextAreaElement>) => {
         let text = e.currentTarget.value;
-        sendChangeMessageButton(text);
+        props.sendChangeMessageButton(text);
 
     }
     const onKeyPressTextareaHandler = (e: KeyboardEvent<HTMLTextAreaElement>) => {
         if (e.ctrlKey && e.key === 'Enter') {
-            sendMessageButton();
+            props.sendMessageButton();
         }
     };
     const onClickMessageButton = () => {
-        sendMessageButton();
+        props.sendMessageButton();
 
     }
     return (

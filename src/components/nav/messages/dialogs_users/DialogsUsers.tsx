@@ -8,12 +8,21 @@ const DialogsUsers: React.FC<propsMessagesTypes> = (props) => {
     return (
         <div className={s.dialogs_users_wrapper}>
             <div className={s.users_in_dialog}>
-                <UsersInDialogs profileInfo={props.profileInfo} messages={props.messages}/>
+                <UsersInDialogs
+                    profileInfo={props.profileInfo}
+                    messages={props.messages}
+                    sendMessageButton={props.sendMessageButton}
+                    sendChangeMessageButton={props.sendChangeMessageButton}
+                />
             </div>
             <div className={s.dialogs}>
-                <MessagesCompanion profileInfo={props.profileInfo}
-                                   messages={props.messages}
-                                   newMessageText={props.newMessageText}/>
+                <MessagesCompanion
+                    profileInfo={props.profileInfo}
+                    messages={props.messages}
+                    newMessageText={props.newMessageText}
+                    sendMessageButton={props.sendMessageButton}
+                    sendChangeMessageButton={props.sendChangeMessageButton}
+                />
             </div>
         </div>
     );

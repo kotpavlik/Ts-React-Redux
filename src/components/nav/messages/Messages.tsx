@@ -7,6 +7,8 @@ export type propsMessagesTypes = {
     profileInfo: profileInfoTypes
     messages: Array<messagesTypes>
     newMessageText?: string
+    sendMessageButton: () => void
+    sendChangeMessageButton: (NewText:string) => void
 }
 export type messagesTypes = {
     id: string
@@ -22,7 +24,10 @@ const Messages: React.FC<propsMessagesTypes> = (props) => {
                 <DialogsUsers
                     profileInfo={props.profileInfo}
                     messages={props.messages}
-                    newMessageText={props.newMessageText}/>
+                    newMessageText={props.newMessageText}
+                    sendMessageButton={props.sendMessageButton}
+                    sendChangeMessageButton={props.sendChangeMessageButton}
+                />
             </div>
         </div>
     );

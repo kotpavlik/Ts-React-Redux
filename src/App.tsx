@@ -14,13 +14,15 @@ import Settings from './components/nav/setings/Settings';
 import profilePhoto1 from './components/assets/profilePhoto1.jpg';
 import profilePhoto2 from './components/assets/profilePhoto2.jpeg';
 import profilePhoto3 from './components/assets/profilePhoto3.jpg';
-import {stateType} from './redux/state/state';
+import { storeType} from './redux/state/state';
 
 type AppPropsType = {
-    state: stateType
+    store: storeType
 }
 
 const App = (props: AppPropsType) => {
+
+    let state = props.store.getState()
 
     let a = profilePhoto1;
     let b = profilePhoto2;
@@ -38,14 +40,21 @@ const App = (props: AppPropsType) => {
                         <Route path="/" element={<Content/>}/>
                         <Route path="/profile" element={
                             <Profile
-                                posts={props.state.forProfilePage.posts}
-                                profileInfo={props.state.forUserProfile.profileInfo}
-                                NewPostText={props.state.forProfilePage.NewPostText}/>}/>
+                                posts={state.forProfilePage.posts}
+                                profileInfo={state.forUserProfile.profileInfo}
+                                NewPostText={state.forProfilePage.NewPostText}
+                                addPost = {props.store.addPost.bind(props.store) }
+                                addChangePost = {props.store.addChangePost.bind(props.store)}
+                                dispatch = {props.store.dispatch.bind(props.store)}
+                            />}/>
                         <Route path="/messages" element={
                             <Messages
-                                profileInfo={props.state.forUserProfile.profileInfo}
-                                messages={props.state.forMessagesPages.messages}
-                                newMessageText={props.state.forMessagesPages.newMessageText}/>}/>
+                                profileInfo={state.forUserProfile.profileInfo}
+                                messages={state.forMessagesPages.messages}
+                                newMessageText={state.forMessagesPages.newMessageText}
+                                sendMessageButton = {props.store.sendMessageButton.bind(props.store)}
+                                sendChangeMessageButton = {props.store.sendChangeMessageButton.bind(props.store)}
+                            />}/>
                         <Route path="/music" element={<Music/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/settings" element={<Settings/>}/>
