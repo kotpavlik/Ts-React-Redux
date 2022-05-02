@@ -16,25 +16,34 @@ export type storeType = {
 }
 
 export type ActionsTypes =
-    AddActionsType |
-    AddChangePostActionsType |
-    SendMessageButtonActionsType |
-    SendChangeMessageButtonActionsType
-type AddActionsType = {
-    type: 'ADD_POST'
-}
-type AddChangePostActionsType = {
-    type: 'ADD_CHANGE_POST'
-    text: string
-}
-type SendMessageButtonActionsType = {
-    type: 'SEND_MESSAGE_BUTTON'
-}
-type SendChangeMessageButtonActionsType = {
-    type: 'SEND_CHANGE_MESSAGE_BUTTON'
-    NewText: string
-}
+    ReturnType<typeof AddPostAC> |
+    ReturnType<typeof AddChangePostAC> |
+    ReturnType<typeof  SendMessageButtonAC> |
+    ReturnType<typeof SendChangeMessageButtonAC>
 
+
+export const AddPostAC = () => {
+    return {
+        type: 'ADD_POST'
+    } as const
+}
+export const AddChangePostAC = (text:string) => {
+    return {
+        type: 'ADD_CHANGE_POST',
+        text
+    } as const
+}
+export const SendMessageButtonAC = () => {
+   return {
+       type: 'SEND_MESSAGE_BUTTON'
+   } as const
+}
+export const  SendChangeMessageButtonAC = (NewText:string) => {
+    return {
+        type:'SEND_CHANGE_MESSAGE_BUTTON',
+        NewText
+    } as const
+}
 
 export type stateType = {
     forProfilePage: ProfilePageType

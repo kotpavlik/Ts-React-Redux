@@ -13,6 +13,7 @@ const DialogsUsers: React.FC<propsMessagesTypes> = (props) => {
                     messages={props.messages}
                     sendMessageButton={props.sendMessageButton}
                     sendChangeMessageButton={props.sendChangeMessageButton}
+                    dispatch ={props.dispatch}
                 />
             </div>
             <div className={s.dialogs}>
@@ -22,6 +23,7 @@ const DialogsUsers: React.FC<propsMessagesTypes> = (props) => {
                     newMessageText={props.newMessageText}
                     sendMessageButton={props.sendMessageButton}
                     sendChangeMessageButton={props.sendChangeMessageButton}
+                    dispatch ={props.dispatch}
                 />
             </div>
         </div>

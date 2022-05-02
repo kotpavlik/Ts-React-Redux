@@ -2,6 +2,7 @@ import React from 'react';
 import DialogsUsers from './dialogs_users/DialogsUsers';
 import s from './Messages.module.css';
 import {profileInfoTypes} from '../profile/Profile';
+import {ActionsTypes} from '../../../redux/state/state';
 
 export type propsMessagesTypes = {
     profileInfo: profileInfoTypes
@@ -9,6 +10,7 @@ export type propsMessagesTypes = {
     newMessageText?: string
     sendMessageButton: () => void
     sendChangeMessageButton: (NewText:string) => void
+    dispatch: (action:ActionsTypes) => void
 }
 export type messagesTypes = {
     id: string
@@ -27,6 +29,7 @@ const Messages: React.FC<propsMessagesTypes> = (props) => {
                     newMessageText={props.newMessageText}
                     sendMessageButton={props.sendMessageButton}
                     sendChangeMessageButton={props.sendChangeMessageButton}
+                    dispatch ={props.dispatch}
                 />
             </div>
         </div>

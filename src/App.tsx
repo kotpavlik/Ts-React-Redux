@@ -54,6 +54,7 @@ const App = (props: AppPropsType) => {
                                 newMessageText={state.forMessagesPages.newMessageText}
                                 sendMessageButton = {props.store.sendMessageButton.bind(props.store)}
                                 sendChangeMessageButton = {props.store.sendChangeMessageButton.bind(props.store)}
+                                dispatch = {props.store.dispatch.bind(props.store)}
                             />}/>
                         <Route path="/music" element={<Music/>}/>
                         <Route path="/news" element={<News/>}/>
