@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import s from './NavMenu.module.css';
+import {MouseEvent} from 'react'
 
 type NavMenuType = {
     active: boolean;
@@ -16,7 +17,7 @@ const NavMenu = (props: NavMenuType) => {
             }}
         >
             <div className={s.blur}/>
-            <div className={s.menuContent} onClick={(e) => e.stopPropagation()}>
+            <div className={s.menuContent} onClick={(e:MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
                 <div className={s.wrap}>
                     <div className={s.menuHeader}>
                         <span className="material-icons">account_circle</span>
