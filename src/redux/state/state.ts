@@ -5,10 +5,6 @@ import {messagesTypes} from '../../components/nav/messages/Messages';
 
 export type storeType = {
     _state: stateType
-    addPost: () => void
-    addChangePost: (text: string) => void
-    sendMessageButton: () => void
-    sendChangeMessageButton: (NewText: string) => void
     _onChange: () => void
     subscribe: (callback: () => void) => void
     getState: () => stateType
@@ -128,34 +124,7 @@ const store: storeType = {
             newMessageText: ''
         }
     },
-    addPost() {
-        const NewPost: postsType = {
-            id: v1(),
-            message: this._state.forProfilePage.NewPostText,
-            likesCount: 0,
-            profilePhoto: '/static/media/profilePhoto.5ca85af7df747cdacde9.jpeg'
-        }
-        this._state.forProfilePage.posts.unshift(NewPost)
-        this._state.forProfilePage.NewPostText = ''
-        this._onChange()
-    },
-    addChangePost(text: string) {
-        this._state.forProfilePage.NewPostText = text;
-        this._onChange()
-    },
-    sendMessageButton() {
-        const newMessage: messagesTypes = {
-            id: v1(),
-            message: this._state.forMessagesPages.newMessageText
-        }
-        this._state.forMessagesPages.messages.push(newMessage)
-        this._state.forMessagesPages.newMessageText = ''
-        this._onChange()
-    },
-    sendChangeMessageButton(NewText: string) {
-        this._state.forMessagesPages.newMessageText = NewText;
-        this._onChange()
-    },
+
     _onChange() {
         console.log('state changed')
     },

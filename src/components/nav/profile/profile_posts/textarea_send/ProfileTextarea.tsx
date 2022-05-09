@@ -23,7 +23,7 @@ const ProfileTextarea = (props: PropsPostTypes) => {
         props.dispatch(AddChangePostAC(text))
     }
     const onKeyPressProfileTextareaHandler = (e: KeyboardEvent<HTMLTextAreaElement>) => {
-        if (e.ctrlKey && e.key === 'Enter') {
+        if (e.ctrlKey && e.key === 'Enter' && props.NewPostText) {
             onClickHandler()
         }
     };
@@ -40,7 +40,7 @@ const ProfileTextarea = (props: PropsPostTypes) => {
                     name="posts_area"
                     placeholder="wright please"
                     id="profile_textarea"/>
-                <Button name={'send'} onClickHandler={() => {
+                <Button name={'send'} disabled={!props.NewPostText} onClickHandler={() => {
                     onClickHandler();
                 }}/>
             </div>

@@ -19,7 +19,7 @@ const MessagesCompanion: React.FC<propsMessagesTypes> = (props) => {
 
     }
     const onKeyPressTextareaHandler = (e: KeyboardEvent<HTMLTextAreaElement>) => {
-        if (e.ctrlKey && e.key === 'Enter') {
+        if (e.ctrlKey && e.key === 'Enter' && props.newMessageText) {
             onClickMessageButton()
         }
     };
@@ -50,7 +50,7 @@ const MessagesCompanion: React.FC<propsMessagesTypes> = (props) => {
             placeholder="wright please"
             id="profile_texta"
         />
-                <Button name={'send'} onClickHandler={()=>{onClickMessageButton()}}/>
+                <Button name={'send'} disabled={!props.newMessageText} onClickHandler={()=>{onClickMessageButton()}}/>
             </div>
         </div>
     );

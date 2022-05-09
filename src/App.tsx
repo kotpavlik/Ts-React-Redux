@@ -43,8 +43,6 @@ const App = (props: AppPropsType) => {
                                 posts={state.forProfilePage.posts}
                                 profileInfo={state.forUserProfile.profileInfo}
                                 NewPostText={state.forProfilePage.NewPostText}
-                                addPost = {props.store.addPost.bind(props.store) }
-                                addChangePost = {props.store.addChangePost.bind(props.store)}
                                 dispatch = {props.store.dispatch.bind(props.store)}
                             />}/>
                         <Route path="/messages" element={
@@ -52,8 +50,6 @@ const App = (props: AppPropsType) => {
                                 profileInfo={state.forUserProfile.profileInfo}
                                 messages={state.forMessagesPages.messages}
                                 newMessageText={state.forMessagesPages.newMessageText}
-                                sendMessageButton = {props.store.sendMessageButton.bind(props.store)}
-                                sendChangeMessageButton = {props.store.sendChangeMessageButton.bind(props.store)}
                                 dispatch = {props.store.dispatch.bind(props.store)}
                             />}/>
                         <Route path="/music" element={<Music/>}/>

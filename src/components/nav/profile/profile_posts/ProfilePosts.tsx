@@ -7,8 +7,6 @@ import {ActionsTypes} from '../../../../redux/state/state';
 export  type PropsPostTypes = {
     posts: Array<postsType>
     NewPostText: string
-    addPost: () => void
-    addChangePost: (text: string) => void
     dispatch: (action:ActionsTypes) => void
 }
 
@@ -19,8 +17,6 @@ const ProfilePosts = (props: PropsPostTypes) => {
             <ProfileTextarea
                 posts={props.posts}
                 NewPostText={props.NewPostText}
-                addPost={props.addPost}
-                addChangePost={props.addChangePost}
                 dispatch={props.dispatch}
             />
         </div>
