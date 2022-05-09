@@ -36,7 +36,6 @@ const MessagesCompanion: React.FC<propsMessagesTypes> = (props) => {
     const disabledLogic =()=> {
         if (props.newMessageText !== undefined) {return !!props.newMessageText.trim() ? false : true}
     }
-    console.log(disabledLogic())
     return (
         <div className={s.wrapper_MessagesCompanion}>
             <div className={s.overflow_for_MessagesCompanion}>
