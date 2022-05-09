@@ -16,8 +16,7 @@ export const ProfilePageReducer = (state:ProfilePageType,action:ActionsTypes) =>
                 likesCount: 0,
                 profilePhoto: '/static/media/profilePhoto.5ca85af7df747cdacde9.jpeg'
             }
-            let stateCopy = {...state,posts:[NewPost,...state.posts]}
-            stateCopy.NewPostText = ''
+            let stateCopy = {...state,NewPostText:'',posts:[NewPost,...state.posts]}
             return stateCopy;
             }
         case 'ADD_CHANGE_POST' :{

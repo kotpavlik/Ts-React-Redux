@@ -13,8 +13,7 @@ export const MessagesPageReducer = (state: MessagesPageType, action: ActionsType
                 id: v1(),
                 message: state.newMessageText
             }
-            let stateCopy = {...state,messages:[...state.messages,newMessage]}
-            stateCopy.newMessageText = ''
+            let stateCopy = {...state,newMessageText:'',messages:[...state.messages,newMessage]}
             return stateCopy;
         }
         case'SEND_CHANGE_MESSAGE_BUTTON': {
