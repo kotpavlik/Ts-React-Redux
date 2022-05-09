@@ -18,9 +18,13 @@ const MessagesCompanion: React.FC<propsMessagesTypes> = (props) => {
         props.dispatch(SendChangeMessageButtonAC(text))
 
     }
+
     const onKeyPressTextareaHandler = (e: KeyboardEvent<HTMLTextAreaElement>) => {
-        if (e.ctrlKey && e.key === 'Enter' && props.newMessageText) {
-            onClickMessageButton()
+        if (props.newMessageText) {
+            let newMessageText = props.newMessageText.trim();
+            if (e.ctrlKey && e.key === 'Enter' && newMessageText) {
+                onClickMessageButton()
+            }
         }
     };
     const onClickMessageButton = () => {
@@ -28,6 +32,10 @@ const MessagesCompanion: React.FC<propsMessagesTypes> = (props) => {
         props.dispatch(SendMessageButtonAC())
 
     }
+    const disabledLogic =()=> {
+        if (props.newMessageText !== undefined) {return !!props.newMessageText.trim() ? false : true}
+    }
+    console.log(disabledLogic())
     return (
         <div className={s.wrapper_MessagesCompanion}>
             <div className={s.overflow_for_MessagesCompanion}>
@@ -40,6 +48,7 @@ const MessagesCompanion: React.FC<propsMessagesTypes> = (props) => {
                     }
                 })}
             </div>
+
             <div className={s.mess_com_textarea}>
         <textarea
             value = {props.newMessageText}
@@ -50,7 +59,7 @@ const MessagesCompanion: React.FC<propsMessagesTypes> = (props) => {
             placeholder="wright please"
             id="profile_texta"
         />
-                <Button name={'send'} disabled={!props.newMessageText} onClickHandler={()=>{onClickMessageButton()}}/>
+                <Button name={'send'} disabled={disabledLogic()} onClickHandler={()=>{onClickMessageButton()}}/>
             </div>
         </div>
     );
