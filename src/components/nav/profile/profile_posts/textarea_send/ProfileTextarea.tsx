@@ -3,7 +3,8 @@ import Button from './button/Button';
 import Posts from './button/posts/Posts';
 import s from './ProfileTextarea.module.css';
 import {PropsPostTypes} from '../ProfilePosts';
-import {AddChangePostAC, AddPostAC} from '../../../../../redux/state/state';
+import {AddChangePostAC, AddPostAC} from '../../../../../redux/reducers/ProfilePage-reducer';
+
 
 
 

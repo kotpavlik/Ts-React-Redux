@@ -1,6 +1,9 @@
 import {postsType, profileInfoTypes} from '../../components/nav/profile/Profile';
 import {v1} from 'uuid';
 import {messagesTypes} from '../../components/nav/messages/Messages';
+import {MessagesPageReducer, SendChangeMessageButtonAC, SendMessageButtonAC} from '../reducers/MessagesPage-reducer';
+import {AddChangePostAC, AddPostAC, ProfilePageReducer} from '../reducers/ProfilePage-reducer';
+import {UserProfileReducer} from '../reducers/UserProfile-reducer';
 
 
 export type storeType = {
@@ -12,48 +15,25 @@ export type storeType = {
 }
 
 export type ActionsTypes =
+    ReturnType<typeof SendMessageButtonAC> |
+    ReturnType<typeof SendChangeMessageButtonAC> |
     ReturnType<typeof AddPostAC> |
-    ReturnType<typeof AddChangePostAC> |
-    ReturnType<typeof  SendMessageButtonAC> |
-    ReturnType<typeof SendChangeMessageButtonAC>
+    ReturnType<typeof AddChangePostAC>
 
-
-export const AddPostAC = () => {
-    return {
-        type: 'ADD_POST'
-    } as const
-}
-export const AddChangePostAC = (text:string) => {
-    return {
-        type: 'ADD_CHANGE_POST',
-        text
-    } as const
-}
-export const SendMessageButtonAC = () => {
-   return {
-       type: 'SEND_MESSAGE_BUTTON'
-   } as const
-}
-export const  SendChangeMessageButtonAC = (NewText:string) => {
-    return {
-        type:'SEND_CHANGE_MESSAGE_BUTTON',
-        NewText
-    } as const
-}
 
 export type stateType = {
     forProfilePage: ProfilePageType
     forUserProfile: UserPageType
     forMessagesPages: MessagesPageType
 }
-type ProfilePageType = {
+export type ProfilePageType = {
     posts: Array<postsType>
     NewPostText: string
 }
-type UserPageType = {
+export type UserPageType = {
     profileInfo: profileInfoTypes
 }
-type MessagesPageType = {
+export type MessagesPageType = {
     messages: Array<messagesTypes>
     newMessageText: string
 }
@@ -135,32 +115,12 @@ const store: storeType = {
         return this._state
     },
     dispatch(action) {
-        if (action.type === 'ADD_POST') {
-            const NewPost: postsType = {
-                id: v1(),
-                message: this._state.forProfilePage.NewPostText,
-                likesCount: 0,
-                profilePhoto: '/static/media/profilePhoto.5ca85af7df747cdacde9.jpeg'
-            }
-            this._state.forProfilePage.posts.unshift(NewPost)
-            this._state.forProfilePage.NewPostText = ''
-            this._onChange()
-        } else if (action.type === 'ADD_CHANGE_POST') {
-            this._state.forProfilePage.NewPostText = action.text;
-            this._onChange()
-        } else if (action.type === 'SEND_MESSAGE_BUTTON') {
-            const newMessage: messagesTypes = {
-                id: v1(),
-                message: this._state.forMessagesPages.newMessageText
-            }
-            this._state.forMessagesPages.messages.push(newMessage)
-            this._state.forMessagesPages.newMessageText = ''
-            this._onChange()
-        } else if (action.type === 'SEND_CHANGE_MESSAGE_BUTTON') {
-            this._state.forMessagesPages.newMessageText = action.NewText;
-            this._onChange()
-        }
+        this._state.forProfilePage = ProfilePageReducer(this._state.forProfilePage, action);
+        this._state.forUserProfile = UserProfileReducer(this._state.forUserProfile, action);
+        this._state.forMessagesPages = MessagesPageReducer(this._state.forMessagesPages, action)
+        this._onChange()
     }
+
 
 }
 
