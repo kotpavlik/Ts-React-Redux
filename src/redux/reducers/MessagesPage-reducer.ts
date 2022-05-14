@@ -6,19 +6,19 @@ import {ActionsTypes, MessagesPageType} from '../state/state';
 
 
 
-export const MessagesPageReducer = (state: MessagesPageType, action: ActionsTypes) => {
+export const MessagesPageReducer = (state: MessagesPageType, action: ActionsTypes):MessagesPageType => {
     switch (action.type) {
         case 'SEND_MESSAGE_BUTTON':{
             const newMessage: messagesTypes = {
                 id: v1(),
                 message: state.newMessageText
             }
-            let stateCopy = {...state,newMessageText:'',messages:[...state.messages,newMessage]}
-            return stateCopy;
+            return {...state,newMessageText:'',messages:[...state.messages,newMessage]}
+
         }
         case'SEND_CHANGE_MESSAGE_BUTTON': {
-            let stateCopy = {...state,newMessageText: action.NewText}
-            return stateCopy;
+            return {...state,newMessageText: action.NewText}
+
         }
         default:
             return state;

@@ -7,7 +7,7 @@ import {v1} from 'uuid';
 
 
 
-export const ProfilePageReducer = (state:ProfilePageType,action:ActionsTypes) => {
+export const ProfilePageReducer = (state:ProfilePageType,action:ActionsTypes):ProfilePageType => {
     switch (action.type) {
         case 'ADD_POST':{
             const NewPost: postsType = {
@@ -16,12 +16,12 @@ export const ProfilePageReducer = (state:ProfilePageType,action:ActionsTypes) =>
                 likesCount: 0,
                 profilePhoto: '/static/media/profilePhoto.5ca85af7df747cdacde9.jpeg'
             }
-            let stateCopy = {...state,NewPostText:'',posts:[NewPost,...state.posts]}
-            return stateCopy;
+            return  {...state,NewPostText:'',posts:[NewPost,...state.posts]}
+
             }
         case 'ADD_CHANGE_POST' :{
-            let stateCopy = {...state,NewPostText:action.text}
-            return stateCopy;
+            return {...state,NewPostText:action.text}
+
         }
         default:
             return state;
