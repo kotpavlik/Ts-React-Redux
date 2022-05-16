@@ -1,28 +1,16 @@
 import React from 'react';
-import MessagesCompanion from './dialogs/MessagesCompanion';
 import s from './DialogsUsers.module.css';
-import UsersInDialogs from './users_in_dialog/UsersInDialogs';
-import {propsMessagesTypes} from '../Messages';
+import {MessagesCompanionContainer} from './dialogs/your_friend_message/MessagesCompanionContainer';
+import {DialogUsersContainer} from './users_in_dialog/UsersInDialogsContainer';
 
-const DialogsUsers: React.FC<propsMessagesTypes> = (props) => {
+const DialogsUsers = () => {
     return (
         <div className={s.dialogs_users_wrapper}>
             <div className={s.users_in_dialog}>
-                <UsersInDialogs
-                    profileInfo={props.profileInfo}
-                    messages={props.messages}
-                    SendMessageButtonAC={props.SendMessageButtonAC}
-                    SendChangeMessageButtonAC ={props.SendChangeMessageButtonAC}
-                />
+                <DialogUsersContainer/>
             </div>
             <div className={s.dialogs}>
-                <MessagesCompanion
-                    profileInfo={props.profileInfo}
-                    messages={props.messages}
-                    newMessageText={props.newMessageText}
-                    SendMessageButtonAC={props.SendMessageButtonAC}
-                    SendChangeMessageButtonAC ={props.SendChangeMessageButtonAC}
-                />
+               <MessagesCompanionContainer/>
             </div>
         </div>
     );

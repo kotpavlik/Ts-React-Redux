@@ -4,7 +4,6 @@ import s from './MessagesCompanion.module.css';
 import YourFriendMessage from './your_friend_message/YourFriendMessage';
 import YouMessages from './you_messages/YouMessages';
 import {messagesTypes, propsMessagesTypes} from '../../Messages';
-import {SendChangeMessageButtonAC, SendMessageButtonAC} from '../../../../../redux/reducers/MessagesPage-reducer';
 
 
 

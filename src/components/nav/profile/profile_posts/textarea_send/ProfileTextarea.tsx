@@ -2,10 +2,15 @@ import React, {ChangeEvent, KeyboardEvent} from 'react';
 import Button from './button/Button';
 import Posts from './button/posts/Posts';
 import s from './ProfileTextarea.module.css';
-import {PropsPostTypes} from '../ProfilePosts';
+import {postsType} from '../../Profile';
 
 
-
+export  type PropsPostTypes = {
+    posts: Array<postsType>
+    NewPostText: string
+    AddPostAC:() => void
+    AddChangePostAC:(text:string) => void
+}
 
 const ProfileTextarea = (props: PropsPostTypes) => {
 

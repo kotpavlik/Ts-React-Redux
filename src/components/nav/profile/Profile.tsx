@@ -2,16 +2,10 @@ import React from 'react';
 import s from './Profile.module.css';
 import ProfileInfo from './profile_info/ProfileInfo';
 import ProfilePosts from './profile_posts/ProfilePosts';
-import {ActionsTypes} from '../../../redux/state/state';
+import {ProfileInfoContainer} from './profile_posts/textarea_send/ProfileInfoContainer';
 
 
-type profilePropsType = {
-    posts: Array<postsType>
-    profileInfo: profileInfoTypes
-    NewPostText: string
-    AddPostAC:() => void
-    AddChangePostAC:(text:string) => void
-}
+
 export type postsType = {
     id: string
     message: string
@@ -44,22 +38,16 @@ export type photosType = {
 }
 
 
-const Profile: React.FC<profilePropsType> = (props) => {
+const Profile = () => {
 
     return (
         <div className={s.profileWrap}>
             <div className={s.profileWrapPosts}>
-                <ProfilePosts
-                    posts={props.posts}
-                    NewPostText={props.NewPostText}
-                    AddPostAC={props.AddPostAC}
-                    AddChangePostAC={props.AddChangePostAC}
-
-                />
+                <ProfilePosts/>
             </div>
             <div className={s.profileWrapInfo}>
 
-                <ProfileInfo profileInfo={props.profileInfo}/>
+                <ProfileInfoContainer/>
             </div>
         </div>
     );

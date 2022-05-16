@@ -14,20 +14,20 @@ import Settings from './components/nav/setings/Settings';
 import profilePhoto1 from './components/assets/profilePhoto1.jpg';
 import profilePhoto2 from './components/assets/profilePhoto2.jpeg';
 import profilePhoto3 from './components/assets/profilePhoto3.jpg';
-import state, {MessagesPageType, ProfilePageType, UserPageType} from './redux/state/state';
+import  {MessagesPageType, ProfilePageType, UserPageType} from './redux/state/state';
 import {AppStateType} from './redux/store/redux-store';
 import {SendChangeMessageButtonAC, SendMessageButtonAC} from './redux/reducers/MessagesPage-reducer';
 import {AddChangePostAC, AddPostAC} from './redux/reducers/ProfilePage-reducer';
 import {connect} from 'react-redux';
 
 
-type mapStateToPropsType = {
+export type mapStateToPropsType = {
     MessagesPage:MessagesPageType
     UserProfile:UserPageType
     ProfilePage:ProfilePageType
 }
 
-type mapDispatchToPropsType ={
+export type  mapDispatchToPropsType ={
     SendMessageButtonAC:() => void
     SendChangeMessageButtonAC:(NewText: string) => void
     AddPostAC:() => void
@@ -52,22 +52,9 @@ debugger
                     <Routes>
                         <Route path="/" element={<Content/>}/>
                         <Route path="/profile" element={
-                            <Profile
-                                posts={props.ProfilePage.posts}
-                                profileInfo={props.UserProfile.profileInfo}
-                                NewPostText={props.ProfilePage.NewPostText}
-                                AddPostAC = {props.AddPostAC}
-                                AddChangePostAC = {props.AddChangePostAC}
-                            />}/>
+                            <Profile/>}/>
                         <Route path="/messages" element={
-                            <Messages
-                                profileInfo={props.UserProfile.profileInfo}
-                                messages={props.MessagesPage.messages}
-                                newMessageText={props.MessagesPage.newMessageText}
-                                SendMessageButtonAC={props.SendMessageButtonAC}
-                                SendChangeMessageButtonAC ={props.SendChangeMessageButtonAC}
-
-                            />}/>
+                            <Messages/>}/>
                         <Route path="/music" element={<Music/>}/>
                         <Route path="/news" element={<News/>}/>
                         <Route path="/settings" element={<Settings/>}/>

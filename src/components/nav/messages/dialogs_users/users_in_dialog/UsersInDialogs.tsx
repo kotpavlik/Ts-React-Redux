@@ -1,9 +1,16 @@
 import React from "react";
 import DialogsUsersMessage from "./dialogs_users_message/DialogsUsersMessage";
 import s from "./UsersInDialogs.module.css";
-import {propsMessagesTypes} from '../../Messages';
+import {profileInfoTypes} from '../../../profile/Profile';
+import {messagesTypes} from '../../Messages';
 
-const UsersInDialogs: React.FC<propsMessagesTypes>= (props) => {
+type propsUserDialogsType = {
+    profileInfo: profileInfoTypes
+    messages: Array<messagesTypes>
+}
+
+const UsersInDialogs: React.FC<propsUserDialogsType>= (props) => {
+
   return (
     <div className={s.users_dialogs}>
       <div className={s.searching}>
