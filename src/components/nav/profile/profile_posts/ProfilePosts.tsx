@@ -7,7 +7,8 @@ import {ActionsTypes} from '../../../../redux/state/state';
 export  type PropsPostTypes = {
     posts: Array<postsType>
     NewPostText: string
-    dispatch: (action:ActionsTypes) => void
+    AddPostAC:() => void
+    AddChangePostAC:(text:string) => void
 }
 
 const ProfilePosts = (props: PropsPostTypes) => {
@@ -17,7 +18,8 @@ const ProfilePosts = (props: PropsPostTypes) => {
             <ProfileTextarea
                 posts={props.posts}
                 NewPostText={props.NewPostText}
-                dispatch={props.dispatch}
+                AddPostAC={props.AddPostAC}
+                AddChangePostAC={props.AddChangePostAC}
             />
         </div>
     );

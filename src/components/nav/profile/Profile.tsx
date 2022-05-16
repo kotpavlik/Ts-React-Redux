@@ -9,7 +9,8 @@ type profilePropsType = {
     posts: Array<postsType>
     profileInfo: profileInfoTypes
     NewPostText: string
-    dispatch: (action:ActionsTypes) => void
+    AddPostAC:() => void
+    AddChangePostAC:(text:string) => void
 }
 export type postsType = {
     id: string
@@ -51,7 +52,9 @@ const Profile: React.FC<profilePropsType> = (props) => {
                 <ProfilePosts
                     posts={props.posts}
                     NewPostText={props.NewPostText}
-                    dispatch ={props.dispatch}
+                    AddPostAC={props.AddPostAC}
+                    AddChangePostAC={props.AddChangePostAC}
+
                 />
             </div>
             <div className={s.profileWrapInfo}>

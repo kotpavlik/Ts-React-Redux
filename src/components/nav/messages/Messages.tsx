@@ -8,7 +8,8 @@ export type propsMessagesTypes = {
     profileInfo: profileInfoTypes
     messages: Array<messagesTypes>
     newMessageText?: string
-    dispatch: (action:ActionsTypes) => void
+    SendMessageButtonAC:() => void
+    SendChangeMessageButtonAC:(NewText: string) => void
 }
 export type messagesTypes = {
     id: string
@@ -25,7 +26,8 @@ const Messages: React.FC<propsMessagesTypes> = (props) => {
                     profileInfo={props.profileInfo}
                     messages={props.messages}
                     newMessageText={props.newMessageText}
-                    dispatch ={props.dispatch}
+                    SendMessageButtonAC={props.SendMessageButtonAC}
+                    SendChangeMessageButtonAC ={props.SendChangeMessageButtonAC}
                 />
             </div>
         </div>

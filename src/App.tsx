@@ -14,15 +14,28 @@ import Settings from './components/nav/setings/Settings';
 import profilePhoto1 from './components/assets/profilePhoto1.jpg';
 import profilePhoto2 from './components/assets/profilePhoto2.jpeg';
 import profilePhoto3 from './components/assets/profilePhoto3.jpg';
-import { storeType} from './redux/state/state';
+import state, {MessagesPageType, ProfilePageType, UserPageType} from './redux/state/state';
+import {AppStateType} from './redux/store/redux-store';
+import {SendChangeMessageButtonAC, SendMessageButtonAC} from './redux/reducers/MessagesPage-reducer';
+import {AddChangePostAC, AddPostAC} from './redux/reducers/ProfilePage-reducer';
+import {connect} from 'react-redux';
 
-type AppPropsType = {
-    store: storeType
+
+type mapStateToPropsType = {
+    MessagesPage:MessagesPageType
+    UserProfile:UserPageType
+    ProfilePage:ProfilePageType
 }
 
-const App = (props: AppPropsType) => {
+type mapDispatchToPropsType ={
+    SendMessageButtonAC:() => void
+    SendChangeMessageButtonAC:(NewText: string) => void
+    AddPostAC:() => void
+    AddChangePostAC:(text:string) => void
+}
 
-    let state = props.store.getState()
+export const App  = (props:mapStateToPropsType & mapDispatchToPropsType) => {
+debugger
 
     let a = profilePhoto1;
     let b = profilePhoto2;
@@ -40,17 +53,20 @@ const App = (props: AppPropsType) => {
                         <Route path="/" element={<Content/>}/>
                         <Route path="/profile" element={
                             <Profile
-                                posts={state.forProfilePage.posts}
-                                profileInfo={state.forUserProfile.profileInfo}
-                                NewPostText={state.forProfilePage.NewPostText}
-                                dispatch = {props.store.dispatch.bind(props.store)}
+                                posts={props.ProfilePage.posts}
+                                profileInfo={props.UserProfile.profileInfo}
+                                NewPostText={props.ProfilePage.NewPostText}
+                                AddPostAC = {props.AddPostAC}
+                                AddChangePostAC = {props.AddChangePostAC}
                             />}/>
                         <Route path="/messages" element={
                             <Messages
-                                profileInfo={state.forUserProfile.profileInfo}
-                                messages={state.forMessagesPages.messages}
-                                newMessageText={state.forMessagesPages.newMessageText}
-                                dispatch = {props.store.dispatch.bind(props.store)}
+                                profileInfo={props.UserProfile.profileInfo}
+                                messages={props.MessagesPage.messages}
+                                newMessageText={props.MessagesPage.newMessageText}
+                                SendMessageButtonAC={props.SendMessageButtonAC}
+                                SendChangeMessageButtonAC ={props.SendChangeMessageButtonAC}
+
                             />}/>
                         <Route path="/music" element={<Music/>}/>
                         <Route path="/news" element={<News/>}/>
@@ -66,4 +82,12 @@ const App = (props: AppPropsType) => {
     );
 };
 
-export default App;
+
+
+
+
+const mapStateToProps = (state:AppStateType) => {
+    return state
+}
+
+export default connect(mapStateToProps,{SendMessageButtonAC,SendChangeMessageButtonAC,AddPostAC,AddChangePostAC})(App)

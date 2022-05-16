@@ -16,7 +16,7 @@ const MessagesCompanion: React.FC<propsMessagesTypes> = (props) => {
     const onChangeTextarea = (e:ChangeEvent<HTMLTextAreaElement>) => {
         let text = e.currentTarget.value;
         // props.sendChangeMessageButton(text);
-        props.dispatch(SendChangeMessageButtonAC(text))
+        props.SendChangeMessageButtonAC(text)
 
     }
 
@@ -30,7 +30,7 @@ const MessagesCompanion: React.FC<propsMessagesTypes> = (props) => {
     };
     const onClickMessageButton = () => {
         // props.sendMessageButton();
-        props.dispatch(SendMessageButtonAC())
+        props.SendMessageButtonAC()
 
     }
     const disabledLogic =()=> {
