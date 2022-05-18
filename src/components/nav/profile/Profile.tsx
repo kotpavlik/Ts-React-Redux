@@ -1,9 +1,10 @@
 import React from 'react';
 import s from './Profile.module.css';
-import ProfileInfo from './profile_info/ProfileInfo';
 import ProfilePosts from './profile_posts/ProfilePosts';
 import {ProfileInfoContainer} from './profile_posts/textarea_send/ProfileInfoContainer';
 
+const ProfilePostsMemo = React.memo(ProfilePosts)
+const ProfileInfoContainerMemo = React.memo(ProfileInfoContainer)
 
 
 export type postsType = {
@@ -43,11 +44,11 @@ const Profile = () => {
     return (
         <div className={s.profileWrap}>
             <div className={s.profileWrapPosts}>
-                <ProfilePosts/>
+                <ProfilePostsMemo/>
             </div>
             <div className={s.profileWrapInfo}>
 
-                <ProfileInfoContainer/>
+                <ProfileInfoContainerMemo/>
             </div>
         </div>
     );

@@ -21,6 +21,14 @@ import {AddChangePostAC, AddPostAC} from './redux/reducers/ProfilePage-reducer';
 import {connect} from 'react-redux';
 
 
+const ContentMemo= React.memo(Content)
+const ProfileMemo =React.memo(Profile)
+const MessagesMemo =React.memo(Messages)
+const MusicMemo =React.memo(Music)
+const NewsMemo =React.memo(News)
+const SettingsMemo =React.memo(Settings)
+
+
 export type mapStateToPropsType = {
     MessagesPage:MessagesPageType
     UserProfile:UserPageType
@@ -50,14 +58,14 @@ debugger
                 </header>
                 <nav className={s.nawWrapper}>
                     <Routes>
-                        <Route path="/" element={<Content/>}/>
+                        <Route path="/" element={<ContentMemo/>}/>
                         <Route path="/profile" element={
-                            <Profile/>}/>
+                            <ProfileMemo/>}/>
                         <Route path="/messages" element={
-                            <Messages/>}/>
-                        <Route path="/music" element={<Music/>}/>
-                        <Route path="/news" element={<News/>}/>
-                        <Route path="/settings" element={<Settings/>}/>
+                            <MessagesMemo/>}/>
+                        <Route path="/music" element={<MusicMemo/>}/>
+                        <Route path="/news" element={<NewsMemo/>}/>
+                        <Route path="/settings" element={<SettingsMemo/>}/>
                     </Routes>
                     <NavMenu active={menuActive} setMenuActive={setMenuActive}/>
                 </nav>
