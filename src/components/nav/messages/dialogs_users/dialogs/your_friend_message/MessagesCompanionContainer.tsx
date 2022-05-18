@@ -1,19 +1,44 @@
 import {connect} from 'react-redux';
 import {AppStateType} from '../../../../../../redux/store/redux-store';
 import MessagesCompanion from '../MessagesCompanion';
-import {SendChangeMessageButtonAC, SendMessageButtonAC} from '../../../../../../redux/reducers/MessagesPage-reducer';
+import {
+    messagesTypes,
+    SendChangeMessageButtonAC,
+    SendMessageButtonAC
+} from '../../../../../../redux/reducers/MessagesPage-reducer';
+import { Dispatch } from 'redux';
+import {profileInfoTypes} from '../../../../profile/Profile';
 
+export type mapDispatchToPropsType = {
+    sendMessage: () => void
+    sendChangeMessage: (NewText:string) => void
+}
 
+export type mapStateToPropsType = {
+    newMessageText:string
+    profileInfo:profileInfoTypes
+    messages:Array<messagesTypes>
+}
 
-const mapStateToProps = (state:AppStateType) => {
+const mapStateToProps = (state:AppStateType):mapStateToPropsType => {
     return {
         newMessageText: state.MessagesPage.newMessageText,
         profileInfo:state.UserProfile.profileInfo,
         messages:state.MessagesPage.messages
     }
 }
+const mapDispatchToProps = (dispatch:Dispatch):mapDispatchToPropsType => {
+    return {
+        sendMessage: () => {
+            dispatch(SendMessageButtonAC())
+        },
+        sendChangeMessage: (NewText:string) => {
+            dispatch(SendChangeMessageButtonAC(NewText))
+        }}
+
+}
 
 
 export const MessagesCompanionContainer = connect(mapStateToProps,
-    {SendMessageButtonAC,SendChangeMessageButtonAC})
+    mapDispatchToProps)
 (MessagesCompanion)

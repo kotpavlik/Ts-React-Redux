@@ -14,7 +14,6 @@ import Settings from './components/nav/setings/Settings';
 import profilePhoto1 from './components/assets/profilePhoto1.jpg';
 import profilePhoto2 from './components/assets/profilePhoto2.jpeg';
 import profilePhoto3 from './components/assets/profilePhoto3.jpg';
-import  {MessagesPageType, ProfilePageType, UserPageType} from './redux/state/state';
 import {AppStateType} from './redux/store/redux-store';
 import {SendChangeMessageButtonAC, SendMessageButtonAC} from './redux/reducers/MessagesPage-reducer';
 import {AddChangePostAC, AddPostAC} from './redux/reducers/ProfilePage-reducer';
@@ -29,11 +28,7 @@ const NewsMemo =React.memo(News)
 const SettingsMemo =React.memo(Settings)
 
 
-export type mapStateToPropsType = {
-    MessagesPage:MessagesPageType
-    UserProfile:UserPageType
-    ProfilePage:ProfilePageType
-}
+export type mapStateToPropsType = AppStateType
 
 export type  mapDispatchToPropsType ={
     SendMessageButtonAC:() => void
@@ -43,7 +38,7 @@ export type  mapDispatchToPropsType ={
 }
 
 export const App  = (props:mapStateToPropsType & mapDispatchToPropsType) => {
-debugger
+
 
     let a = profilePhoto1;
     let b = profilePhoto2;
@@ -81,7 +76,7 @@ debugger
 
 
 
-const mapStateToProps = (state:AppStateType) => {
+const mapStateToProps = (state:AppStateType):mapStateToPropsType => {
     return state
 }
 

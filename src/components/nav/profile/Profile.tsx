@@ -7,12 +7,7 @@ const ProfilePostsMemo = React.memo(ProfilePosts)
 const ProfileInfoContainerMemo = React.memo(ProfileInfoContainer)
 
 
-export type postsType = {
-    id: string
-    message: string
-    likesCount: number
-    profilePhoto: string
-}
+
 export type profileInfoTypes = {
     userId: string
     aboutMe: string

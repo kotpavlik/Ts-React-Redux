@@ -1,4 +1,3 @@
-import {ActionsTypes, UserPageType} from '../state/state';
 import {v1} from 'uuid';
 
 type initialStateType = {
@@ -53,7 +52,7 @@ const initialState:initialStateType = {
     }
 }
 
-export const UserProfileReducer = (state: UserPageType = initialState, action: ActionsTypes):UserPageType => {
+export const UserProfileReducer = (state: initialStateType = initialState, action: any):initialStateType => {
     return state;
 };
 

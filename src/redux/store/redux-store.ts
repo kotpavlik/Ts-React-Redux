@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
     ProfilePage: ProfilePageReducer
 })
 
-type RootReducerType = typeof rootReducer
+export type RootReducerType = typeof rootReducer
 export type AppStateType = ReturnType<RootReducerType>
 
 

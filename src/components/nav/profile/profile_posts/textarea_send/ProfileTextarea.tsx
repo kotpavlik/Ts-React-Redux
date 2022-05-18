@@ -2,17 +2,11 @@ import React, {ChangeEvent, KeyboardEvent} from 'react';
 import Button from './button/Button';
 import Posts from './button/posts/Posts';
 import s from './ProfileTextarea.module.css';
-import {postsType} from '../../Profile';
+import {mapDispatchToProps, mapStateToProps} from './ProfileTextareaContainer';
 
 
-export  type PropsPostTypes = {
-    posts: Array<postsType>
-    NewPostText: string
-    AddPostAC:() => void
-    AddChangePostAC:(text:string) => void
-}
 
-const ProfileTextarea = (props: PropsPostTypes) => {
+const ProfileTextarea:React.FC<mapStateToProps & mapDispatchToProps> = (props) => {
 
     let MyPosts = props.posts.map((p) => {
         return (<Posts key={p.id} post={p.message} profilePhoto={p.profilePhoto}/>)
@@ -20,12 +14,12 @@ const ProfileTextarea = (props: PropsPostTypes) => {
 
     const onClickHandler = () => {
         // props.addPost();
-        props.AddPostAC()
+        props.addPost()
     }
     const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let text = e.currentTarget.value;
         // props.addChangePost(text);
-        props.AddChangePostAC(text)
+        props.addChangePost(text)
     }
     const onKeyPressProfileTextareaHandler = (e: KeyboardEvent<HTMLTextAreaElement>) => {
         let trimPostText = props.NewPostText.trim();

@@ -2,6 +2,7 @@ import React from 'react';
 import DialogsUsers from './dialogs_users/DialogsUsers';
 import s from './Messages.module.css';
 import {profileInfoTypes} from '../profile/Profile';
+import {messagesTypes} from '../../../redux/reducers/MessagesPage-reducer';
 
 export type propsMessagesTypes = {
     profileInfo: profileInfoTypes
@@ -10,10 +11,7 @@ export type propsMessagesTypes = {
     SendMessageButtonAC:() => void
     SendChangeMessageButtonAC:(NewText: string) => void
 }
-export type messagesTypes = {
-    id: string
-    message: string
-}
+
 
 
 const Messages = () => {

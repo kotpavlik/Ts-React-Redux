@@ -1,10 +1,14 @@
-import {ActionsTypes, ProfilePageType} from '../state/state';
-import {postsType} from '../../components/nav/profile/Profile';
 import {v1} from 'uuid';
 
-type initialStateType = {
+export type initialStateType = {
     posts:Array<postsType>
     NewPostText:string
+}
+export type postsType = {
+    id: string
+    message: string
+    likesCount: number
+    profilePhoto: string
 }
 const initialState:initialStateType = {
     posts: [
@@ -36,8 +40,11 @@ const initialState:initialStateType = {
     NewPostText: ''
 }
 
+export type ProfileActionsTypes =
+ReturnType<typeof AddPostAC> |
+ReturnType<typeof AddChangePostAC>
 
-export const ProfilePageReducer = (state:ProfilePageType = initialState,action:ActionsTypes):ProfilePageType => {
+export const ProfilePageReducer = (state:initialStateType = initialState,action:ProfileActionsTypes):initialStateType => {
     switch (action.type) {
         case 'ADD_POST':{
             const NewPost: postsType = {

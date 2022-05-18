@@ -3,19 +3,20 @@ import Button from '../../../profile/profile_posts/textarea_send/button/Button';
 import s from './MessagesCompanion.module.css';
 import YourFriendMessage from './your_friend_message/YourFriendMessage';
 import YouMessages from './you_messages/YouMessages';
-import {messagesTypes, propsMessagesTypes} from '../../Messages';
+import {messagesTypes} from '../../../../../redux/reducers/MessagesPage-reducer';
+import {mapDispatchToPropsType, mapStateToPropsType} from './your_friend_message/MessagesCompanionContainer';
 
 
 
 
-const MessagesCompanion: React.FC<propsMessagesTypes> = (props) => {
+const MessagesCompanion: React.FC<mapStateToPropsType & mapDispatchToPropsType > = (props) => {
 
 
 
     const onChangeTextarea = (e:ChangeEvent<HTMLTextAreaElement>) => {
         let text = e.currentTarget.value;
         // props.sendChangeMessageButton(text);
-        props.SendChangeMessageButtonAC(text)
+        props.sendChangeMessage(text)
 
     }
 
@@ -29,7 +30,7 @@ const MessagesCompanion: React.FC<propsMessagesTypes> = (props) => {
     };
     const onClickMessageButton = () => {
         // props.sendMessageButton();
-        props.SendMessageButtonAC()
+        props.sendMessage()
 
     }
     const disabledLogic =()=> {

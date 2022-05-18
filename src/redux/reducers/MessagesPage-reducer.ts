@@ -1,13 +1,14 @@
 import {v1} from 'uuid';
-import {messagesTypes} from '../../components/nav/messages/Messages';
-import {ActionsTypes, MessagesPageType} from '../state/state';
 
-type initialStateType = {
+export type initialStateType = {
     messages:Array<messagesTypes>
     newMessageText:string
 }
-
-const initialState:initialStateType = {
+export type messagesTypes = {
+    id: string
+    message: string
+}
+ const initialState:initialStateType = {
     messages: [
         {id: v1(), message: 'Hi, my dear hackers'},
         {id: v1(), message: 'How are you? My friend'},
@@ -19,7 +20,7 @@ const initialState:initialStateType = {
 }
 
 
-export const MessagesPageReducer = (state: MessagesPageType = initialState, action: ActionsTypes):MessagesPageType => {
+export const MessagesPageReducer = (state: initialStateType = initialState, action: MessagesActionsTypes):initialStateType => {
     switch (action.type) {
         case 'SEND_MESSAGE_BUTTON':{
             const newMessage: messagesTypes = {
@@ -37,6 +38,10 @@ export const MessagesPageReducer = (state: MessagesPageType = initialState, acti
             return state;
     }
 }
+
+export type MessagesActionsTypes =
+    ReturnType<typeof SendMessageButtonAC> |
+    ReturnType<typeof SendChangeMessageButtonAC>
 
 export const SendMessageButtonAC = () => {
     return {
