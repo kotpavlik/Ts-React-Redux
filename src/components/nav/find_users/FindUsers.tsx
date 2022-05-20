@@ -18,7 +18,10 @@ export const FindUsers = (props:FollowButtonPropsType) => {
                 return (
                     <div key={user.id} className={s.all_wrapper_find_users}>
                         <UserLogoMemo logo={user.photos}/>
-                        <UserStatusMemo status={user.status}/>
+                        <div className={s.wrapper_status_and_name}>
+                            <div className={s.user_name}>{user.name}</div>
+                            <UserStatusMemo status={user.status}/>
+                        </div>
                         <FollowButtonMemo id={user.id} followed={user.followed} ToggleFollowed={props.ToggleFollowed}/>
                     </div>
                 )
