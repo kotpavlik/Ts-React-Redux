@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
-import FollowButton from './FollowButton';
-import {FollowedToggleAC, users} from '../../../../redux/reducers/Users-reducer';
-import {AppStateType} from '../../../../redux/store/redux-store';
 import {Dispatch} from 'redux';
+import {FindUsers} from './FindUsers';
+import {FollowedToggleAC, users} from '../../../redux/reducers/Users-reducer';
+import {AppStateType} from '../../../redux/store/redux-store';
 
 export type mapStateToPropsType = {
-    followed: Array<users>
+    users: Array<users>
 }
 export type mapDispatchToPropsType = {
     ToggleFollowed: (value:boolean,id:string) => void
@@ -14,7 +14,7 @@ export type mapDispatchToPropsType = {
 
 const mapStateToProps = (state:AppStateType):mapStateToPropsType => {
     return {
-        followed: state.FindUsersPage
+        users: state.FindUsersPage
     }
 }
 
@@ -25,4 +25,4 @@ const mapDispatchToProps = (dispatch:Dispatch):mapDispatchToPropsType => {
         }
     }
 }
-export const FollowButtonContainer = connect(mapStateToProps,mapDispatchToProps)(FollowButton)
+export const FindUsersContainer = connect(mapStateToProps,mapDispatchToProps)(FindUsers)

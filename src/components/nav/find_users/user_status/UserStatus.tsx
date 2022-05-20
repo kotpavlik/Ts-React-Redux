@@ -1,10 +1,14 @@
 import React from 'react';
 import s from './UserStatus.module.css'
 
-const UserStatus = () => {
+type UserStatusType = {
+    status:string
+}
+
+const UserStatus = (props:UserStatusType) => {
     return (
         <div className={s.user_status}>
-            status
+            {props.status}
         </div>
     );
 };

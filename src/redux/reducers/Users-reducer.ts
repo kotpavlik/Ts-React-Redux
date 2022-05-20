@@ -12,8 +12,18 @@ export  type users = {
 
 const initialState = [
     {
-        id: v1(), name: 'Igor', status: 'hello hackers',
+        id: v1(), name: 'Igor', status: 'hello hackers everything',
         photos: 'https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg',
+        followed: true
+    },
+    {
+        id: v1(), name: 'Dasha', status: 'hello hackers',
+        photos: 'https://trikky.ru/wp-content/blogs.dir/1/files/2016/12/Avatar_1481048766783.png',
+        followed: false
+    },
+    {
+        id: v1(), name: 'Nina', status: 'good game',
+        photos: 'https://games.mail.ru/pre_xl_resize/hotbox/content_files//gallery/2020/12/11/7421d4ff88134f7a9c0cf86ac846e2e9.png',
         followed: true
     }
 ]
