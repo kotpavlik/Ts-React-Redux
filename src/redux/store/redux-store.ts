@@ -3,6 +3,7 @@ import  thunkMiddleware from 'redux-thunk'
 import {UserProfileReducer} from '../reducers/UserProfile-reducer';
 import {ProfilePageReducer} from '../reducers/ProfilePage-reducer';
 import {MessagesPageReducer} from '../reducers/MessagesPage-reducer';
+import {UsersReducer} from '../reducers/Users-reducer';
 
 
 
@@ -10,7 +11,8 @@ import {MessagesPageReducer} from '../reducers/MessagesPage-reducer';
 const rootReducer = combineReducers({
     MessagesPage: MessagesPageReducer,
     UserProfile: UserProfileReducer,
-    ProfilePage: ProfilePageReducer
+    ProfilePage: ProfilePageReducer,
+    FindUsersPage : UsersReducer
 })
 
 export type RootReducerType = typeof rootReducer

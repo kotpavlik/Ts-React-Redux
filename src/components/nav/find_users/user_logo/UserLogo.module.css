@@ -1,0 +1,17 @@
+.users_logo>img {
+    width: 93px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+.users_logo>img:hover {
+    width: 90px;
+    transition-duration: 0.5s;
+}
+.users_logo {
+    border-radius: 50%;
+    min-width: 90px;
+    max-width: 90px;
+    height: 90px;
+    overflow: hidden;
+    transition-duration: 0.5s;
+}

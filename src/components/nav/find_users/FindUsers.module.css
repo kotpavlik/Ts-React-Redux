@@ -1,0 +1,14 @@
+.global_wrapper_find_users{
+    border: 1px solid #666;
+    border-radius: 20px;
+    box-shadow: rgb(38, 57, 77) 0px -10px 30px -10px;
+    overflow: auto;
+    width: 40%;
+    margin: 0 auto;
+    padding: 20px;
+}
+.all_wrapper_find_users {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

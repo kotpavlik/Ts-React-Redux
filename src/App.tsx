@@ -18,6 +18,7 @@ import {AppStateType} from './redux/store/redux-store';
 import {SendChangeMessageButtonAC, SendMessageButtonAC} from './redux/reducers/MessagesPage-reducer';
 import {AddChangePostAC, AddPostAC} from './redux/reducers/ProfilePage-reducer';
 import {connect} from 'react-redux';
+import {FindUsers} from './components/nav/find_users/FindUsers';
 
 
 const ContentMemo= React.memo(Content)
@@ -26,6 +27,7 @@ const MessagesMemo =React.memo(Messages)
 const MusicMemo =React.memo(Music)
 const NewsMemo =React.memo(News)
 const SettingsMemo =React.memo(Settings)
+const FindUsersMemo = React.memo(FindUsers)
 
 
 export type mapStateToPropsType = AppStateType
@@ -61,6 +63,7 @@ export const App  = (props:mapStateToPropsType & mapDispatchToPropsType) => {
                         <Route path="/music" element={<MusicMemo/>}/>
                         <Route path="/news" element={<NewsMemo/>}/>
                         <Route path="/settings" element={<SettingsMemo/>}/>
+                        <Route path="/find-users" element={<FindUsersMemo/>}/>
                     </Routes>
                     <NavMenu active={menuActive} setMenuActive={setMenuActive}/>
                 </nav>

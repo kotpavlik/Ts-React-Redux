@@ -17,7 +17,7 @@ const NavMenu = (props: NavMenuType) => {
             }}
         >
             <div className={s.blur}/>
-            <div className={s.menuContent} onClick={(e:MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
+            <div className={s.menuContent} onClick={(e: MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
                 <div className={s.wrap}>
                     <div className={s.menuHeader}>
                         <span className="material-icons">account_circle</span>
@@ -64,6 +64,14 @@ const NavMenu = (props: NavMenuType) => {
                             to="/settings"
                         >
                             settings
+                        </NavLink>
+                    </div>
+                    <div className={s.menuHeader}>
+                        <span className="material-icons">group_add</span>
+                        <NavLink
+                            className={({isActive}) => (isActive ? s.activeLink : ' ')}
+                            to="/find-users"
+                        >find users
                         </NavLink>
                     </div>
                 </div>
