@@ -19,7 +19,6 @@ import {SendChangeMessageButtonAC, SendMessageButtonAC} from './redux/reducers/M
 import {AddChangePostAC, AddPostAC} from './redux/reducers/ProfilePage-reducer';
 import {connect} from 'react-redux';
 import {FindUsers} from './components/nav/find_users/FindUsers';
-import {FindUsersContainer} from './components/nav/find_users/FindUsersContainer';
 
 
 const ContentMemo= React.memo(Content)
@@ -57,14 +56,12 @@ export const App  = (props:mapStateToPropsType & mapDispatchToPropsType) => {
                 <nav className={s.nawWrapper}>
                     <Routes>
                         <Route path="/" element={<ContentMemo/>}/>
-                        <Route path="/profile" element={
-                            <ProfileMemo/>}/>
-                        <Route path="/messages" element={
-                            <MessagesMemo/>}/>
+                        <Route path="/profile" element={<ProfileMemo/>}/>
+                        <Route path="/messages" element={<MessagesMemo/>}/>
                         <Route path="/music" element={<MusicMemo/>}/>
                         <Route path="/news" element={<NewsMemo/>}/>
                         <Route path="/settings" element={<SettingsMemo/>}/>
-                        <Route path="/find-users" element={<FindUsersContainer/>}/>
+                        <Route path="/find-users" element={<FindUsersMemo/>}/>
                     </Routes>
                     <NavMenu active={menuActive} setMenuActive={setMenuActive}/>
                 </nav>
