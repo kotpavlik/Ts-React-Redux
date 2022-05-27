@@ -16,7 +16,7 @@ const UserStatusMemo = React.memo(UserStatus)
 export const FindUsers = () => {
 
     const dispatch = useDispatch();
-    const users = useSelector<AppStateType, Array<users>>(state => state.FindUsersPage)
+    const users = useSelector<AppStateType, Array<users>>(state => state.FindUsersPage.users)
 
     return (
         <div className={s.global_wrapper_find_users}>
