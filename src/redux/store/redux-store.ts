@@ -8,6 +8,7 @@ import {UsersReducer} from '../reducers/Users-reducer';
 
 
 
+
 const rootReducer = combineReducers({
     MessagesPage: MessagesPageReducer,
     UserProfile: UserProfileReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
 
 export type RootReducerType = typeof rootReducer
 export type AppStateType = ReturnType<RootReducerType>
+export type AppDispatch = typeof store.dispatch
 
 
 export const store = createStore(rootReducer,applyMiddleware(thunkMiddleware)) ;

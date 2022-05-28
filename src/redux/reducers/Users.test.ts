@@ -20,7 +20,13 @@ test('correct follow-unfollow', () => {
                 photos: 'https://games.mail.ru/pre_xl_resize/hotbox/content_files//gallery/2020/12/11/7421d4ff88134f7a9c0cf86ac846e2e9.png',
                 followed: true
             }
-        ]}
+        ],
+        pageSize: 25,
+        totalUsersCount: 0,
+        currentPage: 1,
+        portionsSize: 8,
+        isFetching:true
+    }
 
     const value = false
 

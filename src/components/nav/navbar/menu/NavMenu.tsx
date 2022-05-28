@@ -70,7 +70,7 @@ const NavMenu = (props: NavMenuType) => {
                         <span className="material-icons">group_add</span>
                         <NavLink
                             className={({isActive}) => (isActive ? s.activeLink : ' ')}
-                            to="/find-users"
+                            to="/users"
                         >find users
                         </NavLink>
                     </div>
