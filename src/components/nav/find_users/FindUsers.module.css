@@ -1,4 +1,5 @@
 .global_wrapper_find_users{
+    position: relative;
     border: 1px solid #666;
     border-radius: 20px;
     box-shadow: rgb(38, 57, 77) 0px -10px 30px -10px;
@@ -38,4 +39,50 @@
     text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.66);
     transform: scale(0.9);
     transition: all 0.5s;
+}
+.userTitle{
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid #666;
+    border-radius:10px;
+    width: 100px;
+    margin: 0 auto;
+    padding: 5px;
+    transition: all 0.5s;
+}
+.userTitle:hover {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    transition: all 0.5s;
+}
+.pagination_all_wrapper{
+    display: flex;
+}
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+}
+.countNoActive {
+    max-width: 50px;
+    min-width: 30px;
+    margin: auto 2px;
+    padding: 2px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+.count{
+    color: aqua;
+    text-shadow: 1px 1px 1px #666;
+    font-size: 25px;
+}
+.buttonContainer{
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+    margin:  20px 0;
 }

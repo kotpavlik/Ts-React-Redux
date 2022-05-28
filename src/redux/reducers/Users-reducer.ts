@@ -42,7 +42,7 @@ const initialState:initialStateType = {
     pageSize: 25,
     totalUsersCount: 0,
     currentPage: 1,
-    portionsSize: 8,
+    portionsSize: 5,
     isFetching:true
 
 }

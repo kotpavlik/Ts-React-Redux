@@ -6,6 +6,7 @@ import FollowButton from './follow_button/FollowButton';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppDispatch, AppStateType} from '../../../redux/store/redux-store';
 import {FollowedToggleAC, getUsers,  users} from '../../../redux/reducers/Users-reducer';
+import Button from '../profile/profile_posts/textarea_send/button/Button';
 
 
 
@@ -41,36 +42,36 @@ export const FindUsers = () => {
     };
 
 
-
     return (
 
     <div className={s.global_wrapper_find_users}>
         {isFetching ? "...loading, please waiting" : null}
-            <div className={s.grid1}>Users</div>
-            <div className={s.grid0}>
-                <div className={s.grid01}>
-                    {pages.filter((p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
-                        .map((p, i) => {
-                            return (
-                                <div
-                                    key={i}
-                                    className={`${s.countNoActive} ${
-                                        currentPage === p && s.count
-                                    }`}
-                                    onClick={(e) => {
-                                        onPageChange(p);
-                                    }}
-                                >
-                                 {p}
-                                </div>
-                            );
-                        })}
-                </div>
+            <div className={s.userTitle}>Users</div>
+            <div className={s.pagination_all_wrapper}>
+
                 <div className={s.buttonContainer}>
                     {portionNumber > 1 &&
-                        <button onClick={()=> {setPortionNumber(portionNumber - 1)}} className={s.tapToAhead}>назад</button>}
+                        <Button onClickHandler={()=> {setPortionNumber(portionNumber - 1)}} name={'назад'}></Button>}
+                    <div className={s.pagination}>
+                        {pages.filter((p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
+                            .map((p, i) => {
+                                return (
+                                    <div
+                                        key={i}
+                                        className={`${s.countNoActive} ${
+                                            currentPage === p && s.count
+                                        }`}
+                                        onClick={(e) => {
+                                            onPageChange(p);
+                                        }}
+                                    >
+                                        {p}
+                                    </div>
+                                );
+                            })}
+                    </div>
                     {portionCount > portionNumber &&
-                        <button onClick={()=> {setPortionNumber(portionNumber + 1)}} className={s.tapToAhead}>вперед</button>}
+                        <Button onClickHandler={()=> {setPortionNumber(portionNumber + 1)}} name={'вперед'}></Button>}
                 </div>
             </div>
 
