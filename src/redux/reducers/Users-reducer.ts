@@ -54,11 +54,9 @@ export const UsersReducer = (state: initialStateType = initialState, action: Use
                 return {...state, users: state.users.map(el => el.id === action.id ? {...el, followed: action.value} : el)}
         }
         case 'SET_USERS' : {
-
             return {...state,users:action.users}
         }
         case 'TOGGLE_IS_FETCHING' : {
-
             return {
                 ...state,
                 isFetching: action.isFetching
