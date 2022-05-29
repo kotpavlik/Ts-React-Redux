@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppDispatch, AppStateType} from '../../../redux/store/redux-store';
 import {FollowedToggleAC, getUsers,  users} from '../../../redux/reducers/Users-reducer';
 import Button from '../profile/profile_posts/textarea_send/button/Button';
+import {ExampleAnimation} from '../../assets/lottie/LottieWaitingAnimation';
 
 
 
@@ -45,13 +46,16 @@ export const FindUsers = () => {
     return (
 
     <div className={s.global_wrapper_find_users}>
-        {isFetching ? "...loading, please waiting" : null}
+        {isFetching ? <div className={s.fetching_users}><ExampleAnimation/> </div>: null}
             <div className={s.userTitle}>Users</div>
             <div className={s.pagination_all_wrapper}>
 
                 <div className={s.buttonContainer}>
-                    {portionNumber > 1 &&
-                        <Button onClickHandler={()=> {setPortionNumber(portionNumber - 1)}} name={'назад'}></Button>}
+                    { portionNumber > 1 ?
+                        <Button onClickHandler={()=> {setPortionNumber(portionNumber - 1)}} name={'назад'}></Button>
+                    :
+                        <Button disabled={true} onClickHandler={()=> {setPortionNumber(portionNumber - 1)}} name={'назад'}></Button>
+                    }
                     <div className={s.pagination}>
                         {pages.filter((p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
                             .map((p, i) => {
@@ -70,8 +74,11 @@ export const FindUsers = () => {
                                 );
                             })}
                     </div>
-                    {portionCount > portionNumber &&
-                        <Button onClickHandler={()=> {setPortionNumber(portionNumber + 1)}} name={'вперед'}></Button>}
+                    {portionCount > portionNumber ?
+                        <Button onClickHandler={()=> {setPortionNumber(portionNumber + 1)}} name={'вперед'}></Button>
+                    :
+                        <Button disabled={true} onClickHandler={()=> {setPortionNumber(portionNumber + 1)}} name={'вперед'}></Button>
+                    }
                 </div>
             </div>
 
@@ -80,7 +87,7 @@ export const FindUsers = () => {
                 return (
                     <div key={user.id} className={s.all_wrapper_find_users}>
 
-                        <UserLogoMemo logo={user.photos}/>
+                        <UserLogoMemo logo={user.photos.small}/>
                         <div className={s.wrapper_status_and_name}>
                             <div className={s.user_name}>{user.name}</div>
                             <UserStatusMemo status={user.status}/>

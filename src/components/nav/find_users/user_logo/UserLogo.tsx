@@ -1,14 +1,17 @@
 import React from 'react';
 import s from './UserLogo.module.css'
+import logo_no_photo from '../../../assets/user_no_photo.png'
 
 type UserLogoType = {
     logo:string
 }
 
 const UserLogo = (props:UserLogoType) => {
+
     return (
         <div className={s.users_logo}>
-            <img src={props.logo} alt=""/>
+            <img className={props.logo ? '' :s.logo}
+                 src={props.logo ? props.logo : logo_no_photo } alt=""/>
         </div>
     );
 };

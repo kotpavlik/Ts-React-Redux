@@ -84,5 +84,13 @@
     display: flex;
     justify-content: space-between;
     width:100%;
-    margin:  20px 0;
+    margin:  20px 15px;
+}
+.fetching_users {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left:29%;
+    top:52px;
+
 }

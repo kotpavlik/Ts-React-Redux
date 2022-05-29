@@ -14,17 +14,26 @@ const initialState = {
     users: [
         {
             id: v1(), name: 'Igor', status: 'hello hackers everything',
-            photos: 'https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg',
+            photos:{
+                small:'https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg',
+                large:''
+            } ,
             followed: true
         },
         {
             id: v1(), name: 'Dasha', status: 'hello hackers',
-            photos: 'https://trikky.ru/wp-content/blogs.dir/1/files/2016/12/Avatar_1481048766783.png',
+            photos:{
+                small:'https://trikky.ru/wp-content/blogs.dir/1/files/2016/12/Avatar_1481048766783.png',
+                large:''
+            } ,
             followed: false
         },
         {
             id: id, name: 'Nina', status: 'good game',
-            photos: 'https://games.mail.ru/pre_xl_resize/hotbox/content_files//gallery/2020/12/11/7421d4ff88134f7a9c0cf86ac846e2e9.png',
+            photos:{
+                small:'https://games.mail.ru/pre_xl_resize/hotbox/content_files//gallery/2020/12/11/7421d4ff88134f7a9c0cf86ac846e2e9.png',
+                large:''
+            } ,
             followed: true
         }
     ],
@@ -47,12 +56,18 @@ test('correct set users from API', () => {
     const users:Array<users> = [
         {
             id: v1(), name: 'No Name', status: 'no status',
-            photos: 'no photo',
+            photos:{
+                small:'no small photo',
+                large:'no large photo'
+            } ,
             followed: true
         },
         {
             id: v1(), name: 'No Name two', status: 'no status two',
-            photos: 'no photo two ',
+            photos:{
+                small: 'no small photo two',
+                large: 'no large photo two'
+            } ,
             followed: false
         }
     ]
@@ -62,6 +77,7 @@ test('correct set users from API', () => {
     expect(finishState).not.toBe(initialState)
     expect(finishState.users.length).toBe(2)
     expect(finishState.users[1].name).toBe('No Name two')
+    expect(finishState.users[1].photos.small).toBe('no small photo two')
 })
 test('correct toggle is fetching', () => {
     const isFetching:boolean = false
