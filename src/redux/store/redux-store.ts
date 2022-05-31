@@ -4,6 +4,7 @@ import {UserProfileReducer} from '../reducers/UserProfile-reducer';
 import {ProfilePageReducer} from '../reducers/ProfilePage-reducer';
 import {MessagesPageReducer} from '../reducers/MessagesPage-reducer';
 import {UsersReducer} from '../reducers/Users-reducer';
+import {loadState, saveState} from '../../utilities/localStorage';
 
 
 
@@ -16,22 +17,20 @@ const rootReducer = combineReducers({
     FindUsersPage : UsersReducer
 })
 
+
+
+
+export const store = createStore(rootReducer,loadState(),applyMiddleware(thunkMiddleware)) ;
+
+store.subscribe(() => {
+    saveState({
+        MessagesPage:store.getState().MessagesPage,
+        UserProfile:store.getState().UserProfile,
+        ProfilePage:store.getState().ProfilePage,
+        FindUsersPage:store.getState().FindUsersPage
+    })
+})
+
 export type RootReducerType = typeof rootReducer
 export type AppStateType = ReturnType<RootReducerType>
 export type AppDispatch = typeof store.dispatch
-
-
-export const store = createStore(rootReducer,applyMiddleware(thunkMiddleware)) ;
-
-
-// export const setupStore = () => {
-//     return  configureStore (
-//         {reducer: rootReducer}
-//     );
-// }
-
-// // Infer the `RootState` and `AppDispatch` types from the store itself
-// export type RootState = ReturnType<typeof rootReducer>
-// // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-// export type AppStore = ReturnType<typeof setupStore>
-// export type AppDispatch = ['dispatch']
