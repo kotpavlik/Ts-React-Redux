@@ -56,7 +56,7 @@ export const App  = (props:mapStateToPropsType & mapDispatchToPropsType) => {
                 <nav className={s.nawWrapper}>
                     <Routes>
                         <Route path="/" element={<ContentMemo/>}/>
-                        <Route path="/profile" element={<ProfileMemo/>}/>
+                        <Route path="/profile/:userId" element={<ProfileMemo/>}/>
                         <Route path="/messages" element={<MessagesMemo/>}/>
                         <Route path="/music" element={<MusicMemo/>}/>
                         <Route path="/news" element={<NewsMemo/>}/>

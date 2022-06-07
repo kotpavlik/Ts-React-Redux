@@ -2,6 +2,8 @@
     padding: 30px;
     font-size: 20px;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 .profileInfo>h2,h3 {
     color: aqua;
@@ -13,6 +15,9 @@
     margin-bottom: 10px;
 }
 .profileLookingForAJob {
+    margin-bottom: 10px;
+}
+.about_me{
     margin-bottom: 10px;
 }
 .profileLookingForAJobDescription {
@@ -60,10 +65,12 @@
 .contact {
     margin-top: 4px;
     margin-bottom: 2px;
+    position: relative;
 }
 .no_contact {
     margin-top: 4px;
     margin-bottom: 2px;
+    position:relative;
 }
 
 .contact>a:visited {

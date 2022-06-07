@@ -4,7 +4,7 @@ import {AppStateType} from '../../../../../redux/store/redux-store';
 
 const mapDispatchToPropsType = (state:AppStateType) => {
     return {
-        profileInfo: state.UserProfile.profileInfo,
+
         messages:state.MessagesPage.messages
     }
 }

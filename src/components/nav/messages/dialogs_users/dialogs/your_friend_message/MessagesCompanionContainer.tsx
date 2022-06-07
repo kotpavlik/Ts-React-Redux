@@ -16,14 +16,12 @@ export type mapDispatchToPropsType = {
 
 export type mapStateToPropsType = {
     newMessageText:string
-    profileInfo:profileInfoTypes
     messages:Array<messagesTypes>
 }
 
 const mapStateToProps = (state:AppStateType):mapStateToPropsType => {
     return {
         newMessageText: state.MessagesPage.newMessageText,
-        profileInfo:state.UserProfile.profileInfo,
         messages:state.MessagesPage.messages
     }
 }

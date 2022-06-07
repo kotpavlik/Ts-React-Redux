@@ -5,13 +5,17 @@ import YourFriendMessage from './your_friend_message/YourFriendMessage';
 import YouMessages from './you_messages/YouMessages';
 import {messagesTypes} from '../../../../../redux/reducers/MessagesPage-reducer';
 import {mapDispatchToPropsType, mapStateToPropsType} from './your_friend_message/MessagesCompanionContainer';
+import {useSelector} from 'react-redux';
+import {AppStateType} from '../../../../../redux/store/redux-store';
+import {profileType} from '../../../../../redux/reducers/UserProfile-reducer';
 
 
 
 
 const MessagesCompanion: React.FC<mapStateToPropsType & mapDispatchToPropsType > = (props) => {
 
-
+debugger
+    const profile = useSelector<AppStateType,profileType>( state => state.UserProfile.profileInfo)
 
     const onChangeTextarea = (e:ChangeEvent<HTMLTextAreaElement>) => {
         let text = e.currentTarget.value;
@@ -36,12 +40,13 @@ const MessagesCompanion: React.FC<mapStateToPropsType & mapDispatchToPropsType >
     const disabledLogic =()=> {
         if (props.newMessageText !== undefined) {return !!props.newMessageText.trim() ? false : true}
     }
+    debugger
     return (
         <div className={s.wrapper_MessagesCompanion}>
             <div className={s.overflow_for_MessagesCompanion}>
                 {props.messages.map((m:messagesTypes) => {
 
-                    if (m.id === props.profileInfo.userId) {
+                    if (m.id === profile.userId.toString()) {
                         return <YouMessages key={m.id} message={m.message}/>
                     } else {
                         return <YourFriendMessage key={m.id} message={m.message}/>

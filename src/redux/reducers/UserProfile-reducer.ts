@@ -1,16 +1,18 @@
-import {v1} from 'uuid';
+import {AppDispatch} from '../store/redux-store';
+import {profileAPI} from '../../api/api';
+
 
 type initialStateType = {
-    profileInfo: profileInfoTypes
+    profileInfo: profileType
 }
- type profileInfoTypes = {
-    userId: string
-    aboutMe: string
+export type profileType = {
+    aboutMe:string
+    userId: number
     lookingForAJob: boolean
     lookingForAJobDescription: string
     fullName: string
     contacts: contactsType
-    photos: photosType
+    photos:photosType
 
 }
  type contactsType = {
@@ -30,11 +32,11 @@ type initialStateType = {
 
 const initialState:initialStateType = {
     profileInfo: {
-        userId: v1(),
+        userId: 20,
         aboutMe: 'Hi, I am a student',
         lookingForAJob: false,
         lookingForAJobDescription: 'i\'m searching for a job',
-        fullName: 'Kot Pavlik',
+        fullName: 'Igor Anufriev',
         contacts: {
             github: 'https://github.com/kotpavlik?tab=repositories',
             vk: 'https://vk.com/etotcosmos',
@@ -52,7 +54,41 @@ const initialState:initialStateType = {
     }
 }
 
-export const UserProfileReducer = (state: initialStateType = initialState, action: any):initialStateType => {
-    return state;
+export type userProfileACType = SetProfileACType | SetContactsACType
+
+export const UserProfileReducer = (state: initialStateType = initialState, action:userProfileACType):initialStateType => {
+    switch(action.type) {
+        case 'SET_PROFILE' : {
+            debugger
+            return {...state,profileInfo:action.profile}
+        }
+        default:
+            return state;
+    }
 };
+
+export type SetProfileACType = ReturnType<typeof SetProfileAC>
+export const SetProfileAC = (profile:profileType) => {
+    debugger
+    return {
+        type: 'SET_PROFILE',
+        profile
+    } as const
+}
+export type SetContactsACType = ReturnType<typeof setContacts>
+export const setContacts = (contacts:string) => {
+    return{
+        type: 'SET_USER_CONTACTS',
+            contacts
+    } as const
+}
+
+
+export const getProfileThunk = (userId:number) => {
+    return async(dispatch:AppDispatch) => {
+        debugger
+        let data = await profileAPI.getProfile(userId);
+        debugger
+            dispatch(SetProfileAC(data))}
+}
 

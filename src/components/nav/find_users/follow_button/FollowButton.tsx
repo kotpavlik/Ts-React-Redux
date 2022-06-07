@@ -3,17 +3,19 @@ import Button from '../../profile/profile_posts/textarea_send/button/Button';
 import s from './FollowButton.module.css'
 
 type FollowButtonPropsType = {
-    id: string
+    id: number
     followed: boolean
-    ToggleFollowed: (followed: boolean, id: string) => void
+    ToggleFollowed: ( id: number) => void
+    disable?:boolean
+    name:string
 }
 
 const FollowButton = (props: FollowButtonPropsType) => {
     return (
         <div className={s.follow_unfollow}>
             <Button
-                name={props.followed ? 'follow' : 'unfollow'}
-                onClickHandler={() => {props.ToggleFollowed(!props.followed, props.id)}}/>
+                name={props.name}
+                onClickHandler={() => {props.ToggleFollowed(props.id)}}/>
 
         </div>
     );

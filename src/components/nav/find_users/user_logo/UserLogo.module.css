@@ -16,5 +16,7 @@
     transition-duration: 0.5s;
 }
 .logo {
+    user-select: none;
     opacity:70%;
+
 }

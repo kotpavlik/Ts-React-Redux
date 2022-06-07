@@ -1,10 +1,11 @@
 import React from 'react';
 import s from './Profile.module.css';
 import ProfilePosts from './profile_posts/ProfilePosts';
-import {ProfileInfoContainer} from './profile_posts/textarea_send/ProfileInfoContainer';
+import ProfileInfo from './profile_info/ProfileInfo';
+
 
 const ProfilePostsMemo = React.memo(ProfilePosts)
-const ProfileInfoContainerMemo = React.memo(ProfileInfoContainer)
+const ProfileInfoMemo = React.memo(ProfileInfo)
 
 
 
@@ -35,15 +36,13 @@ export type photosType = {
 
 
 const Profile = () => {
-
     return (
         <div className={s.profileWrap}>
             <div className={s.profileWrapPosts}>
                 <ProfilePostsMemo/>
             </div>
             <div className={s.profileWrapInfo}>
-
-                <ProfileInfoContainerMemo/>
+                <ProfileInfoMemo/>
             </div>
         </div>
     );

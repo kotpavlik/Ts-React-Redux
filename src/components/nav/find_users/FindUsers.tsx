@@ -5,7 +5,7 @@ import UserStatus from './user_status/UserStatus';
 import FollowButton from './follow_button/FollowButton';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppDispatch, AppStateType} from '../../../redux/store/redux-store';
-import {FollowedToggleAC, getUsers,  users} from '../../../redux/reducers/Users-reducer';
+import {follow, getUsers, unfollow, users} from '../../../redux/reducers/Users-reducer';
 import Button from '../profile/profile_posts/textarea_send/button/Button';
 import {ExampleAnimation} from '../../assets/lottie/LottieWaitingAnimation';
 
@@ -27,6 +27,7 @@ export const FindUsers = () => {
     const totalUsersCount = useSelector<AppStateType,number>(state => state.FindUsersPage.totalUsersCount)
     const portionsSize = useSelector<AppStateType,number>(state => state.FindUsersPage.portionsSize)
     const isFetching =useSelector<AppStateType,boolean>(state => state.FindUsersPage.isFetching)
+    const followingInProgress =useSelector<AppStateType,Array<number>>(state => state.FindUsersPage.followingInProgress)
 
     let PagesCount = Math.ceil(totalUsersCount / pageSize);
     let pages = [];
@@ -52,9 +53,9 @@ export const FindUsers = () => {
 
                 <div className={s.buttonContainer}>
                     { portionNumber > 1 ?
-                        <Button onClickHandler={()=> {setPortionNumber(portionNumber - 1)}} name={'назад'}></Button>
+                        <Button onClickHandler={()=> {setPortionNumber(portionNumber - 1)}} name={'back'}></Button>
                     :
-                        <Button disabled={true} onClickHandler={()=> {setPortionNumber(portionNumber - 1)}} name={'назад'}></Button>
+                        <Button disabled={true} onClickHandler={()=> {setPortionNumber(portionNumber - 1)}} name={'back'}></Button>
                     }
                     <div className={s.pagination}>
                         {pages.filter((p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
@@ -75,9 +76,9 @@ export const FindUsers = () => {
                             })}
                     </div>
                     {portionCount > portionNumber ?
-                        <Button onClickHandler={()=> {setPortionNumber(portionNumber + 1)}} name={'вперед'}></Button>
+                        <Button onClickHandler={()=> {setPortionNumber(portionNumber + 1)}} name={'next'}></Button>
                     :
-                        <Button disabled={true} onClickHandler={()=> {setPortionNumber(portionNumber + 1)}} name={'вперед'}></Button>
+                        <Button disabled={true} onClickHandler={()=> {setPortionNumber(portionNumber + 1)}} name={'next'}></Button>
                     }
                 </div>
             </div>
@@ -87,15 +88,25 @@ export const FindUsers = () => {
                 return (
                     <div key={user.id} className={s.all_wrapper_find_users}>
 
-                        <UserLogoMemo logo={user.photos.small}/>
+                        <UserLogoMemo logo={user.photos.small} id={user.id}/>
                         <div className={s.wrapper_status_and_name}>
                             <div className={s.user_name}>{user.name}</div>
                             <UserStatusMemo status={user.status}/>
                         </div>
-                        <FollowButtonMemo id={user.id} followed={user.followed}
-                                          ToggleFollowed={(value: boolean, id: string) => {
-                                              dispatch(FollowedToggleAC(value, id))
-                                          }}/>
+                        {user.followed ?
+                            <FollowButtonMemo id={user.id} followed={user.followed} name={'follow'}
+                                disable={followingInProgress.some((id:number) => id === user.id)}
+                                              ToggleFollowed={(id: number) => {
+                                                  dispatch(follow(id) as any)
+                                              }}/>
+                            :
+                            <FollowButtonMemo id={user.id} followed={user.followed} name={'unfollow'}
+                                disable={followingInProgress.some((id:number) => id === user.id)}
+                                              ToggleFollowed={(id: number) => {
+                                                  dispatch(unfollow(id) as any)
+                                              }}/>
+                        }
+
                     </div>
                 )
             })}

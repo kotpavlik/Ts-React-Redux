@@ -1,6 +1,5 @@
-import {v1} from 'uuid';
+
 import {
-    FollowedToggleAC,
     SetCurrentPage,
     SetUsersAC,
     setUsersTotalCount,
@@ -9,11 +8,11 @@ import {
     UsersReducer
 } from './Users-reducer';
 
-const id = v1()
+const id = 209087
 const initialState = {
     users: [
         {
-            id: v1(), name: 'Igor', status: 'hello hackers everything',
+            id: 20908752, name: 'Igor', status: 'hello hackers everything',
             photos:{
                 small:'https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg',
                 large:''
@@ -21,7 +20,7 @@ const initialState = {
             followed: true
         },
         {
-            id: v1(), name: 'Dasha', status: 'hello hackers',
+            id: 20908753, name: 'Dasha', status: 'hello hackers',
             photos:{
                 small:'https://trikky.ru/wp-content/blogs.dir/1/files/2016/12/Avatar_1481048766783.png',
                 large:''
@@ -41,21 +40,14 @@ const initialState = {
     totalUsersCount: 0,
     currentPage: 1,
     portionsSize: 8,
-    isFetching: true
+    isFetching: true,
+    followingInProgress:[]
 }
 
-test('correct follow-unfollow', () => {
-    const value = false
-    const action = FollowedToggleAC(value, id)
-    const finishState = UsersReducer(initialState, action)
-
-    expect(initialState).not.toBe(finishState)
-    expect(finishState.users[2].followed).toBe(false)
-})
 test('correct set users from API', () => {
     const users:Array<users> = [
         {
-            id: v1(), name: 'No Name', status: 'no status',
+            id: 20908756, name: 'No Name', status: 'no status',
             photos:{
                 small:'no small photo',
                 large:'no large photo'
@@ -63,7 +55,7 @@ test('correct set users from API', () => {
             followed: true
         },
         {
-            id: v1(), name: 'No Name two', status: 'no status two',
+            id: 20908759, name: 'No Name two', status: 'no status two',
             photos:{
                 small: 'no small photo two',
                 large: 'no large photo two'

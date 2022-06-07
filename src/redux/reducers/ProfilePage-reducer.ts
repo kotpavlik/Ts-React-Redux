@@ -1,16 +1,18 @@
 import {v1} from 'uuid';
 
+
 export type initialStateType = {
-    posts:Array<postsType>
-    NewPostText:string
+    posts: Array<postsType>
+    NewPostText: string
 }
+
 export type postsType = {
     id: string
     message: string
     likesCount: number
     profilePhoto: string
 }
-const initialState:initialStateType = {
+const initialState: initialStateType = {
     posts: [
         {
             id: v1(),
@@ -37,43 +39,47 @@ const initialState:initialStateType = {
             profilePhoto: '/static/media/profilePhoto3.89ba50aeb7cf370e9c58.jpg'
         },
     ],
-    NewPostText: ''
+    NewPostText: '',
 }
 
-export type ProfileActionsTypes =
-ReturnType<typeof AddPostAC> |
-ReturnType<typeof AddChangePostAC>
+export type ProfileActionsTypes = AddPostACType | AddChangePostACType
 
-export const ProfilePageReducer = (state:initialStateType = initialState,action:ProfileActionsTypes):initialStateType => {
+
+export const ProfilePageReducer = (state: initialStateType = initialState, action: ProfileActionsTypes): initialStateType => {
     switch (action.type) {
-        case 'ADD_POST':{
+        case 'ADD_POST': {
             const NewPost: postsType = {
                 id: v1(),
                 message: state.NewPostText,
                 likesCount: 0,
                 profilePhoto: '/static/media/profilePhoto.5ca85af7df747cdacde9.jpeg'
             }
-            return  {...state,NewPostText:'',posts:[NewPost,...state.posts]}
+            return {...state, NewPostText: '', posts: [NewPost, ...state.posts]}
 
-            }
-        case 'ADD_CHANGE_POST' :{
-            return {...state,NewPostText:action.text}
-
+        }
+        case 'ADD_CHANGE_POST' : {
+            return {...state, NewPostText: action.text}
         }
         default:
             return state;
     }
 }
 
+export type AddPostACType = ReturnType<typeof AddPostAC>
 export const AddPostAC = () => {
     return {
         type: 'ADD_POST'
     } as const
 }
-export const AddChangePostAC = (text:string) => {
+
+export type AddChangePostACType = ReturnType<typeof AddChangePostAC>
+export const AddChangePostAC = (text: string) => {
     return {
         type: 'ADD_CHANGE_POST',
         text
     } as const
 }
+
+
+
 

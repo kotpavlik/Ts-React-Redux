@@ -24,7 +24,7 @@ const NavMenu = (props: NavMenuType) => {
 
                         <NavLink
                             className={({isActive}) => (isActive ? s.activeLink : ' ')}
-                            to="/profile"
+                            to="/profile/*"
                         >
                             profile
                         </NavLink>

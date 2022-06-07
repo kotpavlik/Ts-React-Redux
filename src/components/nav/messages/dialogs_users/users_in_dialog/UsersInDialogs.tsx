@@ -5,7 +5,6 @@ import {profileInfoTypes} from '../../../profile/Profile';
 import {messagesTypes} from '../../../../../redux/reducers/MessagesPage-reducer';
 
 type propsUserDialogsType = {
-    profileInfo: profileInfoTypes
     messages: Array<messagesTypes>
 }
 
