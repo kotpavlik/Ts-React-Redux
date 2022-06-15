@@ -18,8 +18,6 @@ const rootReducer = combineReducers({
 })
 
 
-
-
 export const store = createStore(rootReducer,loadState(),applyMiddleware(thunkMiddleware)) ;
 
 store.subscribe(() => {
