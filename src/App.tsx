@@ -19,6 +19,7 @@ import {SendChangeMessageButtonAC, SendMessageButtonAC} from './redux/reducers/M
 import {AddChangePostAC, AddPostAC} from './redux/reducers/ProfilePage-reducer';
 import {connect} from 'react-redux';
 import {FindUsers} from './components/nav/find_users/FindUsers';
+import {Login} from './components/login/Login';
 
 
 const ContentMemo= React.memo(Content)
@@ -62,6 +63,7 @@ export const App  = (props:mapStateToPropsType & mapDispatchToPropsType) => {
                         <Route path="/news" element={<NewsMemo/>}/>
                         <Route path="/settings" element={<SettingsMemo/>}/>
                         <Route path="/users" element={<FindUsersMemo/>}/>
+                        <Route path="/login" element={<Login/>}/>
                     </Routes>
                     <NavMenu active={menuActive} setMenuActive={setMenuActive}/>
                 </nav>

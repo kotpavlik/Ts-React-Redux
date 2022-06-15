@@ -5,6 +5,7 @@ import {ProfilePageReducer} from '../reducers/ProfilePage-reducer';
 import {MessagesPageReducer} from '../reducers/MessagesPage-reducer';
 import {UsersReducer} from '../reducers/Users-reducer';
 import {loadState, saveState} from '../../utilities/localStorage';
+import {AuthReducer} from '../reducers/Auth-reducer';
 
 
 
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     MessagesPage: MessagesPageReducer,
     UserProfile: UserProfileReducer,
     ProfilePage: ProfilePageReducer,
-    FindUsersPage : UsersReducer
+    FindUsersPage : UsersReducer,
+    AuthPage : AuthReducer
 })
 
 
@@ -25,7 +27,8 @@ store.subscribe(() => {
         MessagesPage:store.getState().MessagesPage,
         UserProfile:store.getState().UserProfile,
         ProfilePage:store.getState().ProfilePage,
-        FindUsersPage:store.getState().FindUsersPage
+        FindUsersPage:store.getState().FindUsersPage,
+        AuthPage:store.getState().AuthPage
     })
 })
 

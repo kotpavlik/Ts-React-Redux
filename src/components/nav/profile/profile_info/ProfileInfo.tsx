@@ -19,7 +19,6 @@ const ProfileInfo = () => {
     const match = useMatch("/profile/:userId/")
 
    const  refreshProfile = () =>  {
-        debugger
         let userId ;
         if(match) userId = match.params.userId;  // это хук смотри на строку 39.Там всё поймёшь!
         if (!userId) {

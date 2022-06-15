@@ -19,7 +19,6 @@ export const usersAPI = {
 export const profileAPI = {
     getProfile(userId:number) {
         return instance.get(`profile/` + userId).then(response => {
-            debugger
             return response.data
         });
     },
@@ -38,3 +37,35 @@ export const followAPI = {
         });
     }
 };
+
+
+export const userAuthAPI = {
+    getAuth() {
+        return instance.get(`auth/me`).then(response => {
+            return response
+        });
+    },
+    loginApi(email:string, password:string, rememberMe:boolean = false, captcha:string) {
+        return instance.post(`auth/login`, {
+            email,
+            password,
+            rememberMe,
+            captcha
+        }).then(response => {
+            return response
+        });
+    },
+    logoutApi() {
+        return instance.delete(`auth/login`).then(response => {
+            return response
+        });
+    }
+
+};
+export const securityAPI = {
+    getCaptcha() {
+        return instance.get(`security/get-captcha-url`).then(response => {
+            return response
+        });
+    }
+}
