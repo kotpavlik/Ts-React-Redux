@@ -2,7 +2,7 @@ import React from "react";
 import s from "./Header.module.css";
 import logo from "./../assets/logo192.png";
 import Burger from "../nav/navbar/burger/Burger";
-import { NavLink } from "react-router-dom";
+import {Navigate, NavLink} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStateType} from '../../redux/store/redux-store';
 import {logout} from '../../redux/reducers/Auth-reducer';
@@ -34,7 +34,6 @@ const Header = (props: BurgerType) => {
       </h1>
 
             <div className={s.singIn}>
-
                 {isAuth ?
                     <div className={s.logoAndExitFlex}>
                         <div className={s.exit} onClick={()=>{dispatch(logout() as any)} }>exit</div>

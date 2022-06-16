@@ -62,7 +62,6 @@ export const getAuthAboutUs = () => {
     return async(dispatch:AppDispatch) => {
         let response = await userAuthAPI.getAuth();
         if (response.data.resultCode === 0) {
-            debugger
             let {
                 id,
                 email,
@@ -86,7 +85,6 @@ export const login = (email:string, password:string, rememberMe:boolean, captcha
     return async(dispatch:AppDispatch & any) => {
         let response = await userAuthAPI.loginApi(email, password, rememberMe, captcha);
         if (response.data.resultCode === 0) {
-            debugger
             await dispatch(getAuthAboutUs());
             dispatch(getCaptchaUrlSuccess(''));
         } else {

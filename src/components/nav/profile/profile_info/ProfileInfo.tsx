@@ -7,7 +7,7 @@ import {
     getProfileThunk,
     profileType
 } from '../../../../redux/reducers/UserProfile-reducer';
-import { useMatch} from 'react-router-dom';
+import {Navigate, useMatch} from 'react-router-dom';
 
 
 
@@ -17,6 +17,9 @@ const ProfileInfo = () => {
     const dispatch:AppDispatch = useDispatch();
     const profile = useSelector<AppStateType,profileType>( state => state.UserProfile.profileInfo)
     const match = useMatch("/profile/:userId/")
+    const isAuth = useSelector<AppStateType,boolean>(state => state.AuthPage.isAuth)
+
+
 
    const  refreshProfile = () =>  {
         let userId ;
@@ -30,7 +33,9 @@ const ProfileInfo = () => {
         dispatch(getProfileThunk(Number(userId)) as any)
     }
     useEffect(()=> {refreshProfile()},[])
-
+    if(!isAuth) {
+        return <Navigate to={'/login'}/>
+    }
     return (
         <div className={s.profileInfo}>
             <div className={s.profileFullName}>

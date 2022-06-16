@@ -24,19 +24,19 @@ export const Login = React.memo(() => {
     const validationsSchema = yup.object().shape({
         email: yup
             .string()
-            .typeError("должно быть строкой")
-            .required("обязательно"),
+            .typeError("should be a string")
+            .required("required"),
         password: yup
             .string()
-            .typeError("должно быть строкой")
-            .required("обязательно"),
+            .typeError("should be a string")
+            .required("required"),
         confirmPassword: yup
             .string()
-            .oneOf([yup.ref("password")], "пароли не совпадают")
-            .required("Обязательно"),
+            .oneOf([yup.ref("password")], "passwords do not match")
+            .required("required"),
         captcha: yup
             .string()
-            .typeError("должно быть строкой")
+            .typeError("should be a string")
 
     });
     const initialValues = {
@@ -84,7 +84,7 @@ export const Login = React.memo(() => {
                                 </div>
 
                                 <div>
-                                    <label htmlFor={`password`}>пароль</label>
+                                    <label htmlFor={`password`}>password</label>
                                     <br />
                                     <Field
                                         className={s.inputLogForm}
@@ -97,13 +97,13 @@ export const Login = React.memo(() => {
                                     )}
                                 </div>
                                 <div>
-                                    <label htmlFor={`confirmPassword`}>повторите пароль</label>
+                                    <label htmlFor={`confirmPassword`}>confirm password</label>
                                     <br />
                                     <Field
                                         className={s.inputLogForm}
                                         type={`password`}
                                         name={`confirmPassword`}
-                                        placeholder={`повторите пароль`}
+                                        placeholder={`confirm password`}
                                     />
                                 </div>
                                 {touched.confirmPassword && errors.confirmPassword && (
@@ -118,7 +118,7 @@ export const Login = React.memo(() => {
                                     name={`rememberMe`}
                                 />
                                 <label className={s.checkLabel} htmlFor={`rememberMe`}>
-                                    запомнить меня
+                                   remember me
                                 </label>
                             </div>
 
@@ -127,7 +127,7 @@ export const Login = React.memo(() => {
                                 {CaptchaUrl && <img src={CaptchaUrl}/>}
                                 {CaptchaUrl &&
                                     <div>
-                                        <label htmlFor={`captcha`}>введи цифры и буквы</label>
+                                        <label htmlFor={`captcha`}>enter numbers and letters</label>
                                         <br />
                                         <Field
                                             className={s.inputLogForm}
@@ -146,7 +146,7 @@ export const Login = React.memo(() => {
                                     disabled={!isValid && !dirty}
                                     type={`submit`}
                                 >
-                                    Отправить
+                                    send
                                 </button>
                             </div>
                         </Form>

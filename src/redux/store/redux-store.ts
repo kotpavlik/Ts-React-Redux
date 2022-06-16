@@ -8,9 +8,6 @@ import {loadState, saveState} from '../../utilities/localStorage';
 import {AuthReducer} from '../reducers/Auth-reducer';
 
 
-
-
-
 const rootReducer = combineReducers({
     MessagesPage: MessagesPageReducer,
     UserProfile: UserProfileReducer,
