@@ -15,7 +15,6 @@ export type BurgerType = {
 };
 
 const Header = (props: BurgerType) => {
-    debugger
     const dispatch = useDispatch()
     const isAuth = useSelector<AppStateType,boolean>(state => state.AuthPage.isAuth)
     const id = useSelector<AppStateType,number>(state => state.AuthPage.id)
