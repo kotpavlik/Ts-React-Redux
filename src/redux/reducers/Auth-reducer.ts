@@ -36,7 +36,6 @@ export const AuthReducer =(state:initialStateAuth = initialState,action:globalAu
 
 type setUserAuthDataType = ReturnType<typeof setUserAuthData>
 export const setUserAuthData = (id:number, email:string, login:string, isAuth:boolean) => {
-
     return {
         type: 'SET_USER_DATA',
         payload: {

@@ -42,7 +42,7 @@ const ProfileInfo = () => {
                 <h2>{profile.fullName} </h2>
             </div>
             <div className={s.profilePhoto}>
-                <img src={profile.photos.large ? profile.photos.large : logo_no_photo} alt="no photo"/>
+                <img src={profile.photos.large ? profile.photos.large : logo_no_photo} alt="no"/>
             </div>
             <div className={s.profileStatus}>
                 <h3>status :</h3> <div className={s.item}>{profile.aboutMe}</div>
@@ -61,7 +61,6 @@ const ProfileInfo = () => {
                 <div className={s.item}>
                 {Object.keys(profile.contacts)
                     .map((key) => {
-                        debugger
                         // @ts-ignore // задать вопрос по поводу ts-ignore. И какой тип задавать props.profileInfo.contacts[key]; и где!!!
                         let contact = profile.contacts[key];
                         return <Contact key={key} contactTitle={key} contactValue={contact}/>

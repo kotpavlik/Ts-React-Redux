@@ -59,7 +59,6 @@ export type userProfileACType = SetProfileACType | SetContactsACType
 export const UserProfileReducer = (state: initialStateType = initialState, action:userProfileACType):initialStateType => {
     switch(action.type) {
         case 'SET_PROFILE' : {
-            debugger
             return {...state,profileInfo:action.profile}
         }
         default:
@@ -69,7 +68,6 @@ export const UserProfileReducer = (state: initialStateType = initialState, actio
 
 export type SetProfileACType = ReturnType<typeof SetProfileAC>
 export const SetProfileAC = (profile:profileType) => {
-    debugger
     return {
         type: 'SET_PROFILE',
         profile
@@ -86,9 +84,7 @@ export const setContacts = (contacts:string) => {
 
 export const getProfileThunk = (userId:number) => {
     return async(dispatch:AppDispatch) => {
-        debugger
         let data = await profileAPI.getProfile(userId);
-        debugger
             dispatch(SetProfileAC(data))}
 }
 
