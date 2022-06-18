@@ -8,6 +8,7 @@ import {
     profileType
 } from '../../../../redux/reducers/UserProfile-reducer';
 import {Navigate, useMatch} from 'react-router-dom';
+import {users} from '../../../../redux/reducers/Users-reducer';
 
 
 
@@ -18,6 +19,7 @@ const ProfileInfo = () => {
     const profile = useSelector<AppStateType,profileType>( state => state.UserProfile.profileInfo)
     const match = useMatch("/profile/:userId/")
     const isAuth = useSelector<AppStateType,boolean>(state => state.AuthPage.isAuth)
+    const status = useSelector<AppStateType,string>(state => state.FindUsersPage.status)
 
 
 
@@ -36,6 +38,7 @@ const ProfileInfo = () => {
     if(!isAuth) {
         return <Navigate to={'/login'}/>
     }
+
     return (
         <div className={s.profileInfo}>
             <div className={s.profileFullName}>
@@ -45,7 +48,7 @@ const ProfileInfo = () => {
                 <img src={profile.photos.large ? profile.photos.large : logo_no_photo} alt="no"/>
             </div>
             <div className={s.profileStatus}>
-                <h3>status :</h3> <div className={s.item}>{profile.aboutMe}</div>
+                <h3>status :</h3> <div className={s.item}>{status}</div>
             </div>
             <div className={s.profileLookingForAJob}>
                 <h3>job</h3>

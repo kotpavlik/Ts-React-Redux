@@ -41,7 +41,8 @@ const initialState = {
     currentPage: 1,
     portionsSize: 8,
     isFetching: true,
-    followingInProgress:[]
+    followingInProgress:[],
+    status:''
 }
 
 test('correct set users from API', () => {

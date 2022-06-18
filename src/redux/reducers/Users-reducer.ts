@@ -9,6 +9,7 @@ export type initialStateType = {
     portionsSize: number
     isFetching: boolean
     followingInProgress: Array<number>
+    status: string
 
 }
 
@@ -32,6 +33,7 @@ const initialState: initialStateType = {
     portionsSize: 5,
     followingInProgress: [],
     isFetching: true,
+    status: "hello"
 }
 
 
