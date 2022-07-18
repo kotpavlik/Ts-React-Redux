@@ -3,7 +3,6 @@ import {v1} from 'uuid';
 
 export type initialStateType = {
     posts: Array<postsType>
-    NewPostText: string
 }
 
 export type postsType = {
@@ -38,11 +37,10 @@ const initialState: initialStateType = {
             likesCount: 12,
             profilePhoto: '/static/media/profilePhoto3.89ba50aeb7cf370e9c58.jpg'
         },
-    ],
-    NewPostText: '',
+    ]
 }
 
-export type ProfileActionsTypes = AddPostACType | AddChangePostACType
+export type ProfileActionsTypes = AddPostACType
 
 
 export const ProfilePageReducer = (state: initialStateType = initialState, action: ProfileActionsTypes): initialStateType => {
@@ -50,15 +48,11 @@ export const ProfilePageReducer = (state: initialStateType = initialState, actio
         case 'ADD_POST': {
             const NewPost: postsType = {
                 id: v1(),
-                message: state.NewPostText,
+                message: action.message,
                 likesCount: 0,
                 profilePhoto: '/static/media/profilePhoto.5ca85af7df747cdacde9.jpeg'
             }
-            return {...state, NewPostText: '', posts: [NewPost, ...state.posts]}
-
-        }
-        case 'ADD_CHANGE_POST' : {
-            return {...state, NewPostText: action.text}
+            return {...state, posts: [NewPost, ...state.posts]}
         }
         default:
             return state;
@@ -66,19 +60,14 @@ export const ProfilePageReducer = (state: initialStateType = initialState, actio
 }
 
 export type AddPostACType = ReturnType<typeof AddPostAC>
-export const AddPostAC = () => {
+export const AddPostAC = (message:string) => {
     return {
-        type: 'ADD_POST'
+        type: 'ADD_POST',
+        message
     } as const
 }
 
-export type AddChangePostACType = ReturnType<typeof AddChangePostAC>
-export const AddChangePostAC = (text: string) => {
-    return {
-        type: 'ADD_CHANGE_POST',
-        text
-    } as const
-}
+
 
 
 

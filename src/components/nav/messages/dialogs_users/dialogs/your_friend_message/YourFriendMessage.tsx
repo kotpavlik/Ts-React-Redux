@@ -1,7 +1,6 @@
 import React from 'react';
 import s from './YourFriendMessage.module.css';
-import logoYourfriend from '../../../../../assets/logo192.png';
-import {propsMessagesTypes} from '../../../Messages';
+import logoYourFriend from '../../../../../assets/logo192.png';
 
 type YourFriendMessagePropsType = {
     message: string
@@ -14,7 +13,7 @@ const YourFriendMessage= (props:YourFriendMessagePropsType) => {
     return (
         <div className={s.messages_wrapper}>
             <div className={s.user_dialog_logo}>
-                <img src={logoYourfriend} alt=""/>
+                <img src={logoYourFriend} alt=""/>
             </div>
             <div className={s.user_dialog_name_last_massage}>
                 <div className={s.user_dialog_name_}>

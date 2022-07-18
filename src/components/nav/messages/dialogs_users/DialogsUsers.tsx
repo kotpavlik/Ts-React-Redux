@@ -1,10 +1,10 @@
 import React from 'react';
 import s from './DialogsUsers.module.css';
-import {MessagesCompanionContainer} from './dialogs/your_friend_message/MessagesCompanionContainer';
 import {DialogUsersContainer} from './users_in_dialog/UsersInDialogsContainer';
+import MessagesCompanion from './dialogs/MessagesCompanion';
 
 const DialogUsersContainerMemo = React.memo(DialogUsersContainer)
-const MessagesCompanionContainerMemo = React.memo(MessagesCompanionContainer)
+const MessagesCompanionMemo = React.memo(MessagesCompanion)
 
 const DialogsUsers = () => {
     return (
@@ -13,7 +13,7 @@ const DialogsUsers = () => {
                 <DialogUsersContainerMemo/>
             </div>
             <div className={s.dialogs}>
-               <MessagesCompanionContainerMemo/>
+               <MessagesCompanionMemo/>
             </div>
         </div>
     );

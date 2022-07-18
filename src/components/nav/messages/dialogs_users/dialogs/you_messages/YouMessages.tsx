@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./YouMessages.module.css";
 import logo_companion from "../../../../../assets/profilePhoto.jpeg";
-import {propsMessagesTypes} from '../../../Messages';
+
 
 type YourMessagePropsType = {
     message: string

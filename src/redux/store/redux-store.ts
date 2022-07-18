@@ -1,4 +1,4 @@
-import { createStore,applyMiddleware,compose, combineReducers} from '@reduxjs/toolkit'
+import { createStore,applyMiddleware, combineReducers} from '@reduxjs/toolkit'
 import  thunkMiddleware from 'redux-thunk'
 import {UserProfileReducer} from '../reducers/UserProfile-reducer';
 import {ProfilePageReducer} from '../reducers/ProfilePage-reducer';

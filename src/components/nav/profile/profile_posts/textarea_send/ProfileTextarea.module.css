@@ -9,6 +9,11 @@
 .profile_textarea {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.form_text{
+    width: 80%;
 }
 
 .textarea {
@@ -17,6 +22,7 @@
     border-radius: 8px;
     padding: 5px;
     width: 100%;
+    height: 40px;
     transition-duration: 0.5s;
 }
 

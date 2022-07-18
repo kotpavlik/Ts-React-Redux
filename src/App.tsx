@@ -54,43 +54,41 @@ export const App = () => {
     }, [])
     const initialized = useSelector<AppStateType, boolean>(state => state.InitializedApp.initialized)
 
-    if (!initialized) {
-        return (
-            <div className={s.flex_wrapper}>
-                <div className={s.animation_wrapper}>
-                    <ExampleAnimation2/>
-                    <span className={s.loading_animation}>loading <div className={s.lds_ellipsis}><div></div><div></div><div></div><div></div></div></span>
-                </div>
-            </div>
-        )
-
-    }
     return (
-        <div className={s.globalWrapper}>
-            <div className={s.App}>
-                <header className={s.headerWrapper}>
-                    <Header setMenuActive={setMenuActive} menuActive={menuActive}/>
-                </header>
-                <nav className={s.nawWrapper}>
-                    <Routes>
-                        <Route path="/" element={<ContentMemo/>}/>
-                        <Route path="/profile/:userId" element={<ProfileMemo/>}/>
-                        <Route path="/messages" element={<MessagesMemo/>}/>
-                        <Route path="/music" element={<MusicMemo/>}/>
-                        <Route path="/news" element={<NewsMemo/>}/>
-                        <Route path="/settings" element={<SettingsMemo/>}/>
-                        <Route path="/users" element={<FindUsersMemo/>}/>
-                        <Route path="/login" element={<Login/>}/>
-                    </Routes>
-                    <NavMenu active={menuActive} setMenuActive={setMenuActive}/>
-                </nav>
-                <footer className={s.footerWrapper}>
-                    <Footer/>
-                </footer>
-            </div>
-        </div>
+         initialized  ?
+                <div className={s.flex_wrapper}>
+                    <div className={s.animation_wrapper}>
+                        <ExampleAnimation2/>
+                        <span className={s.loading_animation}>loading <div className={s.lds_ellipsis}><div></div><div></div><div></div><div></div></div></span>
+                    </div>
+                </div>
+        :
+                <div className={s.globalWrapper}>
+                    <div className={s.App}>
+                        <header className={s.headerWrapper}>
+                            <Header setMenuActive={setMenuActive} menuActive={menuActive}/>
+                        </header>
+                        <nav className={s.nawWrapper}>
+                            <Routes>
+                                <Route path="/" element={<ContentMemo/>}/>
+                                <Route path="/profile/:userId" element={<ProfileMemo/>}/>
+                                <Route path="/messages" element={<MessagesMemo/>}/>
+                                <Route path="/music" element={<MusicMemo/>}/>
+                                <Route path="/news" element={<NewsMemo/>}/>
+                                <Route path="/settings" element={<SettingsMemo/>}/>
+                                <Route path="/users" element={<FindUsersMemo/>}/>
+                                <Route path="/login" element={<Login/>}/>
+                            </Routes>
+                            <NavMenu active={menuActive} setMenuActive={setMenuActive}/>
+                        </nav>
+                        <footer className={s.footerWrapper}>
+                            <Footer/>
+                        </footer>
+                    </div>
+                </div>
     );
 };
+
 
 
 // const mapStateToProps = (state:AppStateType):mapStateToPropsType => {

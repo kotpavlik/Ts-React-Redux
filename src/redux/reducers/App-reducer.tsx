@@ -1,20 +1,20 @@
 import {AppDispatch} from '../store/redux-store';
 import {getAuthAboutUs} from './Auth-reducer';
-import {getUsers} from './Users-reducer';
+
 
 
 export type initialStateType = {
     initialized:boolean
 }
 const initialState = {
-    initialized:false
+    initialized:true
 }
 
 export const appReducer = (state:initialStateType = initialState,action:AllInitializedType): typeof initialState => {
     switch(action.type){
         case 'SET_INITIALIZED' : {
             return {
-                ...state,initialized:true
+                ...state,initialized:false
             }
         }
         default:

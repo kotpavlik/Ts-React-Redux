@@ -2,7 +2,6 @@ import {v1} from 'uuid';
 
 export type initialStateType = {
     messages:Array<messagesTypes>
-    newMessageText:string
 }
 export type messagesTypes = {
     id: string
@@ -15,8 +14,7 @@ export type messagesTypes = {
         {id: v1(), message: 'Yo Yo Yo. What\'s up?'},
         {id: v1(), message: 'My niga Igor Anufriev'},
         {id: v1(), message: 'Have a good hacking'},
-    ],
-    newMessageText: ''
+    ]
 }
 
 
@@ -25,13 +23,9 @@ export const MessagesPageReducer = (state: initialStateType = initialState, acti
         case 'SEND_MESSAGE_BUTTON':{
             const newMessage: messagesTypes = {
                 id: v1(),
-                message: state.newMessageText
+                message: action.text
             }
-            return {...state,newMessageText:'',messages:[...state.messages,newMessage]}
-
-        }
-        case'SEND_CHANGE_MESSAGE_BUTTON': {
-            return {...state,newMessageText: action.NewText}
+            return {...state,messages:[...state.messages,newMessage]}
 
         }
         default:
@@ -39,21 +33,17 @@ export const MessagesPageReducer = (state: initialStateType = initialState, acti
     }
 }
 
-export type MessagesActionsTypes =
-    ReturnType<typeof SendMessageButtonAC> |
-    ReturnType<typeof SendChangeMessageButtonAC>
+export type MessagesActionsTypes = SendMessageButtonACType
 
-export const SendMessageButtonAC = () => {
+
+type SendMessageButtonACType = ReturnType<typeof SendMessageButtonAC>
+export const SendMessageButtonAC = (text:string) => {
     return {
-        type: 'SEND_MESSAGE_BUTTON'
+        type: 'SEND_MESSAGE_BUTTON',
+        text
     } as const
 }
-export const SendChangeMessageButtonAC = (NewText: string) => {
-    return {
-        type: 'SEND_CHANGE_MESSAGE_BUTTON',
-        NewText
-    } as const
-}
+
 
 
 

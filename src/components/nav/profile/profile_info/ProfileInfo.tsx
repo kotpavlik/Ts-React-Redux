@@ -8,7 +8,7 @@ import {
     profileType
 } from '../../../../redux/reducers/UserProfile-reducer';
 import {Navigate, useMatch} from 'react-router-dom';
-import {users} from '../../../../redux/reducers/Users-reducer';
+
 
 
 

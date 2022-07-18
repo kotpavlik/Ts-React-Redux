@@ -1,7 +1,6 @@
 import React from "react";
 import DialogsUsersMessage from "./dialogs_users_message/DialogsUsersMessage";
 import s from "./UsersInDialogs.module.css";
-import {profileInfoTypes} from '../../../profile/Profile';
 import {messagesTypes} from '../../../../../redux/reducers/MessagesPage-reducer';
 
 type propsUserDialogsType = {

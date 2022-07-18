@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './ProfilePosts.module.css';
-import {ProfileTextareaContainer} from './textarea_send/ProfileTextareaContainer';
+import ProfileTextarea from './textarea_send/ProfileTextarea';
+
 
 
 
@@ -8,7 +9,7 @@ const ProfilePosts = () => {
 
     return (
         <div className={s.profile_posts}>
-          <ProfileTextareaContainer/>
+          <ProfileTextarea/>
         </div>
     );
 };
