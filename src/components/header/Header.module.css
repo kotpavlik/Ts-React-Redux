@@ -5,8 +5,8 @@
     font-size: 20px;
     font-weight: bold;
     background-color: aqua;
-    color: white;
-    text-shadow: 2px 2px black;
+    color: white !important;
+    text-shadow: 2px 2px black !important;
     padding: 10px;
     border: 1px solid black;
     position: fixed;
@@ -31,10 +31,14 @@
     justify-content: space-around;
     align-items: center;
 }
-.singIn{
+.singIn {
     width: 100px;
     margin: auto 0px;
 }
+.singIn>a{
+    color:white !important;
+}
+
 
 .profilePhoto {
     width: 40px;
