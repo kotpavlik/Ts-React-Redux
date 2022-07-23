@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Ts-React-Redux/static/css/main.73256d70.css",
+    "main.js": "/Ts-React-Redux/static/js/main.ca1cbb8f.js",
+    "static/js/787.b56f0aa5.chunk.js": "/Ts-React-Redux/static/js/787.b56f0aa5.chunk.js",
+    "static/media/profilePhoto2.jpeg": "/Ts-React-Redux/static/media/profilePhoto2.bf50647337338a335ccd.jpeg",
+    "static/media/profilePhoto1.jpg": "/Ts-React-Redux/static/media/profilePhoto1.d5cde56cdb4a33410ead.jpg",
+    "static/media/profilePhoto3.jpg": "/Ts-React-Redux/static/media/profilePhoto3.89ba50aeb7cf370e9c58.jpg",
+    "static/media/profilePhoto.jpeg": "/Ts-React-Redux/static/media/profilePhoto.5ca85af7df747cdacde9.jpeg",
+    "static/media/user_no_photo.png": "/Ts-React-Redux/static/media/user_no_photo.bcc74561d38db661b53f.png",
+    "static/media/logo192.png": "/Ts-React-Redux/static/media/logo192.9558f42038df4c056752.png",
+    "index.html": "/Ts-React-Redux/index.html",
+    "main.73256d70.css.map": "/Ts-React-Redux/static/css/main.73256d70.css.map",
+    "main.ca1cbb8f.js.map": "/Ts-React-Redux/static/js/main.ca1cbb8f.js.map",
+    "787.b56f0aa5.chunk.js.map": "/Ts-React-Redux/static/js/787.b56f0aa5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.73256d70.css",
+    "static/js/main.ca1cbb8f.js"
+  ]
+}
